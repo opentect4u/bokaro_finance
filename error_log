@@ -1,0 +1,1 @@
+[28-Jun-2021 08:36:40 UTC] PHP Fatal error:  require_once(): Failed opening required '/var/www/html/process/vendor/autoload.php' (include_path='.:/opt/alt/php73/usr/share/pear') in /home/nsgzmyim/public_html/process/application/controllers/Paypal.php on line 5
