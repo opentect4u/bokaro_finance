@@ -7,7 +7,7 @@ class Report_model extends CI_Model
     {
         parent::__construct();
 
-        $this->db2 = $this->load->database('seconddb', TRUE);
+ 
     }
     public function f_insert($table_name, $data_array)
     {
@@ -48,7 +48,7 @@ class Report_model extends CI_Model
     public function f_selects($table, $select = NULL, $where = NULL, $type=NULL)   // For fertilizer Database
     {
 
-        $db2 = $this->load->database('seconddb', TRUE);
+        $db2 = $this->load->database('', TRUE);
         if (isset($select)) {
             $db2->select($select);
         }
@@ -122,7 +122,7 @@ class Report_model extends CI_Model
 
     public function js_get_sale_rate($br_cd, $comp_id, $ro_dt, $prod_id)
     {
-        $db2 = $this->load->database('seconddb', TRUE);
+    
         $sql = $db2->query("SELECT a.catg_id,b.cate_desc
 									from  mm_sale_rate a,
 	   					                  mm_category b    							   							
@@ -137,36 +137,36 @@ class Report_model extends CI_Model
 
         return $sql->result();
     }
-    public function js_get_stock_qty($ro)
-    {
-        $db2 = $this->load->database('seconddb', TRUE);
-        $sql = $db2->query("SELECT a.stock_qty -  (select  ifnull(sum(qty) ,0) from td_sale where sale_ro ='$ro') stkqty,a.prod_id ,b.gst_rt ,b.prod_id,b.prod_desc,a.unit,c.unit_name FROM td_purchase a ,mm_product b ,mm_unit c WHERE a.prod_id=b.prod_id and a.unit=c.id and  a.ro_no = '$ro'");
-        return $sql->row();
-    }
+    // public function js_get_stock_qty($ro)
+    // {
+   
+    //     $sql = $db2->query("SELECT a.stock_qty -  (select  ifnull(sum(qty) ,0) from td_sale where sale_ro ='$ro') stkqty,a.prod_id ,b.gst_rt ,b.prod_id,b.prod_desc,a.unit,c.unit_name FROM td_purchase a ,mm_product b ,mm_unit c WHERE a.prod_id=b.prod_id and a.unit=c.id and  a.ro_no = '$ro'");
+    //     return $sql->row();
+    // }
 
-    public function js_get_stock_point($ro_no)
-    {
-        $db2 = $this->load->database('seconddb', TRUE);
-        $query = $db2->query("select a.soc_id,a.soc_name
-									from  mm_ferti_soc a,td_purchase b    							   							
-									where  a.soc_id = b.stock_point
-									and    a.stock_point_flag = 'Y'
-									and    b.ro_no            = '$ro_no' ");
-        return $query->row();
-    }
+    // public function js_get_stock_point($ro_no)
+    // {
+    
+    //     $query = $db2->query("select a.soc_id,a.soc_name
+	// 								from  mm_ferti_soc a,td_purchase b    							   							
+	// 								where  a.soc_id = b.stock_point
+	// 								and    a.stock_point_flag = 'Y'
+	// 								and    b.ro_no            = '$ro_no' ");
+    //     return $query->row();
+    // }
 
-    public function f_get_adv_dtls($recv_no)
-    {
-        $db2 = $this->load->database('seconddb', TRUE);
-        $data   =   $db2->query("select  a.trans_dt ,a.sl_no,a.fin_yr,a.branch_id,a.soc_id,a.receipt_no,
-			a.trans_type,a.adv_amt,a.bank,a.remarks,a.inv_no,a.ro_no,a.created_by,a.created_dt,b.bank_name,b.ac_no,
-			a.cshbnk_flag
-			from   tdf_advance a,mm_feri_bank b
-			where  a.bank=b.sl_no
-			and receipt_no = '$recv_no'");
-        $result = $data->row();
-        return $result;
-    }
+    // public function f_get_adv_dtls($recv_no)
+    // {
+   
+    //     $data   =   $db2->query("select  a.trans_dt ,a.sl_no,a.fin_yr,a.branch_id,a.soc_id,a.receipt_no,
+	// 		a.trans_type,a.adv_amt,a.bank,a.remarks,a.inv_no,a.ro_no,a.created_by,a.created_dt,b.bank_name,b.ac_no,
+	// 		a.cshbnk_flag
+	// 		from   tdf_advance a,mm_feri_bank b
+	// 		where  a.bank=b.sl_no
+	// 		and receipt_no = '$recv_no'");
+    //     $result = $data->row();
+    //     return $result;
+    // }
     /******************************* */
     function f_get_purappvoucher($vid)
     {
@@ -940,7 +940,7 @@ class Report_model extends CI_Model
 
     function f_get_acdeatil_all($frm_date, $to_date, $acc_head)
     {
-       // $this->db2 = $this->load->database('seconddb', TRUE);
+      
         /*$sql ="select a.acc_code,if(dr_cr_flag='Dr',a.amount,0)as dr_amt,a.voucher_date,a.remarks, if(dr_cr_flag='Cr',a.amount,0)as cr_amt,
         a.voucher_id,a.voucher_type,a.dr_cr_flag,b.ac_name,c.type from td_vouchers a,md_achead b,mda_mngroup c 
         where voucher_id in(SELECT a.voucher_id FROM td_vouchers a,md_achead b,mda_mngroup c WHERE a.acc_code=b.sl_no 

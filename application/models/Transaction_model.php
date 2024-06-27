@@ -92,9 +92,9 @@ select voucher_date,
 
     function get_gr_dtls($achead_id)
     {
-        $this->db->select('b.name as gr_name, c.name as subgr_name,a.benfed_ac_code');
+        $this->db->select('b.name as gr_name,c.tname as tname');
         $this->db->join('mda_mngroup b', 'a.mngr_id=b.sl_no');
-        $this->db->join('mda_subgroub c', 'a.subgr_id=c.sl_no');
+        $this->db->join('md_type c', 'b.type=c.id');
         $this->db->where(array(
             'a.sl_no' => $achead_id
         ));
@@ -116,25 +116,25 @@ select voucher_date,
         }
     }
 
-    public function f_select_fertidb($table, $select = NULL, $where = NULL, $type = NULL)
-    {
-        $db2 = $this->load->database('seconddb', TRUE);
-        if (isset($select)) {
-            $db2->select($select);
-        }
+    // public function f_select_fertidb($table, $select = NULL, $where = NULL, $type = NULL)
+    // {
+   
+    //     if (isset($select)) {
+    //         $db2->select($select);
+    //     }
 
-        if (isset($where)) {
-            $db2->where($where);
-        }
+    //     if (isset($where)) {
+    //         $db2->where($where);
+    //     }
 
-        $value = $db2->get($table);
+    //     $value = $db2->get($table);
 
-        if ($type == 1) {
-            return $value->row();
-        } else {
-            return $value->result();
-        }
-    }
+    //     if ($type == 1) {
+    //         return $value->row();
+    //     } else {
+    //         return $value->result();
+    //     }
+    // }
 
 
     public function f_get_mnthend($br_cd ){

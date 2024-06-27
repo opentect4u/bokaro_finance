@@ -26,25 +26,24 @@
                         $('#subgr_id_' + id).val('');
 
                         $('#gr_id_' + id).attr("title",'');
-                        $('#subgr_id_' + id).attr("title",'');
+                    
                     } else {
-                        $('#benfedcode_' + id).val(result.benfed_ac_code);
+                        $('#benfedcode_' + id).val(result.tname);
                         $('#gr_id_' + id).val(result.gr_name);
                         $('#subgr_id_' + id).val(result.subgr_name);
 
-                        $('#benfedcode_' + id).attr("title",result.benfed_ac_code);
+                        $('#benfedcode_' + id).attr("title",result.tname);
                         $('#gr_id_' + id).attr("title",result.gr_name);
-                        $('#subgr_id_' + id).attr("title",result.subgr_name);
+                      
                         // console.log(result.gr_name);
                     }
                 } else {
-                    $('#benfedcode_' + id).val(result.benfed_ac_code);
+                    $('#benfedcode_' + id).val(result.tname);
                     $('#gr_id_' + id).val(result.gr_name);
-                    $('#subgr_id_' + id).val(result.subgr_name);
-
-                    $('#benfedcode_' + id).attr("title",result.benfed_ac_code);
+                
+                    $('#benfedcode_' + id).attr("title",result.tname);
                     $('#gr_id_' + id).attr("title",result.gr_name);
-                    $('#subgr_id_' + id).attr("title",result.subgr_name);
+                  
                 }
             }
         });
@@ -74,8 +73,8 @@
                         $('#gr_id_Debit_' + id).attr("title",'');
                         $('#subgr_id_Debit_' + id).attr("title",'');
                     } else {
-                        $('#benfedcode_Debit_' + id).val(result.benfed_ac_code);
-                        $('#benfedcode_Debit_' + id).attr("title",result.benfed_ac_code);
+                        $('#benfedcode_Debit_' + id).val(result.tname);
+                        $('#benfedcode_Debit_' + id).attr("title",result.tname);
                         $('#gr_id_Debit_' + id).val(result.gr_name);
                         $('#subgr_id_Debit_' + id).val(result.subgr_name);
                         $('#gr_id_Debit_' + id).attr("title",result.gr_name);
@@ -83,8 +82,8 @@
                         // console.log(result.gr_name);
                     }
                 } else {
-                    $('#benfedcode_Debit_' + id).val(result.benfed_ac_code);
-                    $('#benfedcode_Debit_' + id).attr("title",result.benfed_ac_code);
+                    $('#benfedcode_Debit_' + id).val(result.tname);
+                    $('#benfedcode_Debit_' + id).attr("title",result.tname);
                     $('#gr_id_Debit_' + id).val(result.gr_name);
                     $('#subgr_id_Debit_' + id).val(result.subgr_name);
                     $('#gr_id_Debit_' + id).attr("title",result.gr_name);
@@ -106,10 +105,10 @@
                     "<?php
                         foreach ($row as $value) {
 							   
-                            echo "<option value='" . $value->sl_no . "'>" . $value->ac_name . "-". $value->benfed_ac_code ."</option>";
+                            echo "<option value='" . $value->sl_no . "'>" . $value->ac_name . "</option>";
 							 
                         }
-                        ?>" + '</select></td>' + '<td><input type="text" class="transparent_tag" id="benfedcode_'+ x +'" name="benfedcode_id[]" style="width: 100%;" readonly></td>'+ '<td><input type="text" class="transparent_tag" id="gr_id_' + x + '" name="gr_id[]" style="width: 100%;" readonly></td>' + '<td><input type="text" class="transparent_tag" id="subgr_id_' + x + '" name="subgr_id[]" style="width: 100%;" readonly></td>' + '<td><input type="text" class="form-control amount_cls" style="width: 100%; text-align: right;" id="amt" name="amount[]" oninput="validate(this)" required ></td>' + '<td><h5>Credit</h5><input type = "hidden" id = "dc_flg" name = "dc_flg[]" class = "transparent_tag" style = "width: 100%; text-align: center;" value = "Credit" readonly required ></td>' + '<td><button type = "button" class = "btn btn-danger" id = "removeRow"> <i class = "fa fa-undo" aria-hidden = "true" > </i></button> </td></tr> ');
+                        ?>" + '</select></td>' + '<td><input type="text" class="transparent_tag" id="benfedcode_'+ x +'" name="benfedcode_id[]" style="width: 100%;" readonly></td>'+ '<td><input type="text" class="transparent_tag" id="gr_id_' + x + '" name="gr_id[]" style="width: 100%;" readonly></td>' + '<td><input type="text" class="form-control amount_cls" style="width: 100%; text-align: right;" id="amt" name="amount[]" oninput="validate(this)" required ></td>' + '<td><h5>Credit</h5><input type = "hidden" id = "dc_flg" name = "dc_flg[]" class = "transparent_tag" style = "width: 100%; text-align: center;" value = "Credit" readonly required ></td>' + '<td><button type = "button" class = "btn btn-danger" id = "removeRow"> <i class = "fa fa-undo" aria-hidden = "true" > </i></button> </td></tr> ');
 			  $( ".select2" ).select2();
 
             } else {
@@ -117,30 +116,7 @@
                 return false;
             }
         });
-        // $("#newrow").click(function() {
-        //     if ($('#v_type').val() != '') {
-        //         var tr_len = $('#vau_tab #add>tr').length;
-        //         var x = tr_len + 1;
-        //         $("#add").append('<tr><td>' +
-        //             '<select id= "acc_code_' + x + '" class="form-control select_2" name="acc_code[]" class="input_text" style="width: 80%;" onchange="set_gr(' + x + ')" required>' +
-        //             '<option value="">Select</option>' +
-        //              "<?php
-        //                 foreach ($row as $value) {
-        //                     echo "<option value='" . $value->sl_no . "'>'" . $value->ac_name . "'</option>";
-        //                 }
-        //                 ?>" +
-        //             '</select></td>' +'<td><input type="text" class="transparent_tag" id="gr_id_' + x + '" name="gr_id[]" style="width: 100%;" readonly></td>' +
-        //             '<td><input type="text" class="transparent_tag" id="subgr_id_' + x + '" name="subgr_id[]" style="width: 100%;" readonly></td>' +
-        //             '<td><input type="text" class="form-control amount_cls" style="width: 100%; text-align: right;" id="amt" name="amount[]" oninput="validate(this)" required></td>' +
-        //             '<td><input type="text" id="dc_flg" name="dc_flg[]" class="transparent_tag" style="width: 100%; text-align: center;" value="' + g_flg + '" readonly></td>' +
-        //             '<td><button type="button" class="btn btn-danger" id="removeRow"><i class="fa fa-undo" aria-hidden="true"></i></button></td></tr>');
-        //         $(".select_2").select2();
-        //         //$('.preferenceSelect').change();
-        //     } else {
-        //         alert('Please Select Voucher Type First');
-        //         return false;
-        //     }
-        // });
+       
 
         $("#add").on('click', '#removeRow', function() {
             $(this).parent().parent().remove();
@@ -213,10 +189,10 @@
                     "<?php
                         foreach ($row as $value) {
 							   
-                            echo "<option value='" . $value->sl_no . "'>" . $value->ac_name . "-". $value->benfed_ac_code ."</option>";
+                            echo "<option value='" . $value->sl_no . "'>" . $value->ac_name . "</option>";
 							 
                         }
-                        ?>" + '</select></td>' + '<td><input type="text" class="transparent_tag" id="benfedcode_Debit_'+ x +'" name="benfedcode_id_Debit[]" style="width: 100%;" readonly></td>'+ '<td><input type="text" class="transparent_tag" id="gr_id_Debit_' + x + '" name="gr_id_Debit[]" style="width: 100%;" readonly></td>' + '<td><input type="text" class="transparent_tag" id="subgr_id_Debit_' + x + '" name="subgr_id_Debit[]" style="width: 100%;" readonly></td>' + '<td><input type="text" class="form-control amount_cls_Debit" style="width: 100%; text-align: right;" id="amt" name="amount_Debit[]" oninput="validate(this)" required ></td>' + '<td><h5>Debit</h5><input type = "hidden" id = "dc_flg" name = "dc_flg_Debit[]" class = "transparent_tag" style = "width: 100%; text-align: center;" value = "Debit" readonly required ></td>' + '<td><button type = "button" class = "btn btn-danger" id = "removeRow_Debit"> <i class = "fa fa-undo" aria-hidden = "true" > </i></button> </td></tr> ');
+                        ?>" + '</select></td>' + '<td><input type="text" class="transparent_tag" id="benfedcode_Debit_'+ x +'" name="benfedcode_id_Debit[]" style="width: 100%;" readonly></td>'+ '<td><input type="text" class="transparent_tag" id="gr_id_Debit_' + x + '" name="gr_id_Debit[]" style="width: 100%;" readonly></td>' +'<td><input type="text" class="form-control amount_cls_Debit" style="width: 100%; text-align: right;" id="amt" name="amount_Debit[]" oninput="validate(this)" required ></td>' + '<td><h5>Debit</h5><input type = "hidden" id = "dc_flg" name = "dc_flg_Debit[]" class = "transparent_tag" style = "width: 100%; text-align: center;" value = "Debit" readonly required ></td>' + '<td><button type = "button" class = "btn btn-danger" id = "removeRow_Debit"> <i class = "fa fa-undo" aria-hidden = "true" > </i></button> </td></tr> ');
 			  $( ".select2" ).select2();
 
             } else {
@@ -278,9 +254,8 @@
                 <thead>
                     <tr>
                     <th style="width: 40%;">A/C Head</th>
-                        <th style="width: 12%;">A/C Code</th>
+                        <th style="width: 12%;">Type</th>
                         <th width="12%">Group</th>
-                        <th width="12%">Subgroup</th>
                         <th>Amount</th>
                         <th></th>
                         <th><button class="btn btn-success" type="button" id="debitnewrow"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button></th>
@@ -293,7 +268,7 @@
                                 <option value="">Select</option>
                                 <?php
                                 foreach ($row as $value) {
-                                    echo "<option value=" . $value->sl_no . ">" . $value->ac_name . "-" . $value->benfed_ac_code . "</option>";
+                                    echo "<option value=" . $value->sl_no . ">" . $value->ac_name . "</option>";
                                 }
                                 ?>
                             </select></td>
@@ -302,10 +277,8 @@
                         <td>
                             <input type="text" title="" class="transparent_tag" id="gr_id_Debit_1" name="gr_id_Debit[]" style="width: 100%;" readonly></td>
                         <td>
-                            <input type="text" title="" class="transparent_tag" id="subgr_id_Debit_1" name="subgr_id_Debit[]" style="width: 100%;" readonly></td>
-                        <td>
                             <input type="text" class="form-control amount_cls_Debit" id="amt" name="amount_Debit[]" style="width: 100%; text-align: right;"  oninput="validate(this)"  required></td>
-                        <!-- <td></td> -->
+                    
                         <td><h5>Debit</h5><input type="hidden" class="transparent_tag" id="" name="dc_flg_Debit[]" value="Debit" style="width: 100%; text-align: center;" readonly></td>
                     </tr>
                 </tbody>
@@ -315,57 +288,16 @@
                     <td><h4>Debit</h4></td>
                 </tr>
                 
-
             </table>
-
-            <!-- <div class="form-group row">
-                <label for="voucher_type" class="col-sm-2 col-form-label">Voucher Type:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" name="voucher_type" id="v_type" onchange="set_dr_cr()" class="input_text" required>
-                        <option value="">Select</option>
-                        <option value="R">Received</option>
-                        <option value="P">Payment</option>
-                    </select>
-                </div>
-            </div> -->
-
-            <!-- <div class="form-group row">
-
-                <label for="acc_cd" class="col-sm-2 col-form-label">A/C Head:</label>
-
-                <div class="col-sm-4">
-
-                    <select name="acc_cd" class="form-control select2" required>
-                        <option value="0">Select</option>
-                        <?php
-                        //foreach ($row as $value) {
-                           // echo "<option value='" . $value->sl_no . "'>" . $value->ac_name . "</option>";
-                       // }
-                        ?>
-                    </select>
-
-                    
-
-                </div>
-				<div class="col-sm-1">
-				    <span style="display: inline;">
-                        <input type="text" id="dc" class="transparent_tag" name="dr_cr_flag" value="" readonly>
-                    </span>
-				</div>
-
-            </div> -->
-
             <hr class="hr_divide">
-
-            
 
             <table id="vau_tab">
                 <thead>
                     <tr>
                         <th style="width: 40%;">A/C Head</th>
-                        <th style="width: 12%;">A/C Code</th>
+                        <th style="width: 12%;">Type</th>
                         <th width="12%">Group</th>
-                        <th width="12%">Subgroup</th>
+                       
                         <th>Amount</th>
                         <th></th>
                         <th><button class="btn btn-success" type="button" id="newrow"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button></th>
@@ -382,14 +314,9 @@
                                 }
                                 ?>
                             </select></td>
-                        <td>
-                            <input type="text" title="" class="transparent_tag" id="benfedcode_1" name="benfedcode_id[]" style="width: 100%;" readonly></td>  
-                        <td>
-                            <input type="text" title="" class="transparent_tag" id="gr_id_1" name="gr_id[]" style="width: 100%;" readonly></td>
-                        <td>
-                            <input type="text" class="transparent_tag" id="subgr_id_1" name="subgr_id[]" title="" style="width: 100%;" readonly></td>
+                        <td><input type="text" title="" class="transparent_tag" id="benfedcode_1" name="benfedcode_id[]" style="width: 100%;" readonly></td>  
+                        <td><input type="text" title="" class="transparent_tag" id="gr_id_1" name="gr_id[]" style="width: 100%;" readonly></td>
                         <td><input type="text" class="form-control amount_cls" id="amt" name="amount[]" style="width: 100%; text-align: right;"  oninput="validate(this)"  required></td>
-                        <!-- <td></td> -->
                         <td><h5>Credit</h5><input type="hidden" class="transparent_tag" id="dc_flg" name="dc_flg[]" value="Credit" style="width: 100%; text-align: center;" readonly></td>
                     </tr>
                 </tbody>
@@ -430,33 +357,6 @@
             // console.log();
         })
     });
-
-    // $('#submit').on('click', function(e) {
-    //     $('select[name^=acc_code_Debit]').map(function(idx, elem) {
-    //         var debitAcoCode = $(elem).val();
-    //         alert(debitAcoCode);
-            
-            
-    //         $('select[name^=acc_code]').map(function(idx, elemm) {
-    //             $('#vau_tab').select
-                
-    //             var creditAcoCode=$('.select2-hidden-accessible').val();
-    //             console.log(creditAcoCode);
-    //             if(creditAcoCode!=0){
-    //             if(debitAcoCode==creditAcoCode){
-    //                 alert('Debit & Credit A/C Head are same');
-    //                 return false;
-    //             }else{
-                   
-    //             }
-    //         }
-
-            
-    //     })
-           
-    //     })
-       
-    // });
     
     $("#submit").on('click', function() {
         $mss=0;

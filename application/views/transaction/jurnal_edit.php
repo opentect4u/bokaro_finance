@@ -97,30 +97,7 @@
                 return false;
             }
         });
-        // $("#newrow").click(function() {
-        //     if ($('#v_type').val() != '') {
-        //         var tr_len = $('#vau_tab #add>tr').length;
-        //         var x = tr_len + 1;
-        //         $("#add").append('<tr><td>' +
-        //             '<select id= "acc_code_' + x + '" class="form-control select_2" name="acc_code[]" class="input_text" style="width: 80%;" onchange="set_gr(' + x + ')" required>' +
-        //             '<option value="">Select</option>' +
-        //              "<?php
-        //                 foreach ($row as $value) {
-        //                     echo "<option value='" . $value->sl_no . "'>'" . $value->ac_name . "'</option>";
-        //                 }
-        //                 ?>" +
-        //             '</select></td>' +'<td><input type="text" class="transparent_tag" id="gr_id_' + x + '" name="gr_id[]" style="width: 100%;" readonly></td>' +
-        //             '<td><input type="text" class="transparent_tag" id="subgr_id_' + x + '" name="subgr_id[]" style="width: 100%;" readonly></td>' +
-        //             '<td><input type="text" class="form-control amount_cls" style="width: 100%; text-align: right;" id="amt" name="amount[]" oninput="validate(this)" required></td>' +
-        //             '<td><input type="text" id="dc_flg" name="dc_flg[]" class="transparent_tag" style="width: 100%; text-align: center;" value="' + g_flg + '" readonly></td>' +
-        //             '<td><button type="button" class="btn btn-danger" id="removeRow"><i class="fa fa-undo" aria-hidden="true"></i></button></td></tr>');
-        //         $(".select_2").select2();
-        //         //$('.preferenceSelect').change();
-        //     } else {
-        //         alert('Please Select Voucher Type First');
-        //         return false;
-        //     }
-        // });
+       
 
         $("#add").on('click', '#removeRow', function() {
             $(this).parent().parent().remove();
@@ -209,7 +186,7 @@
 
 <div class="wraper">
 
-    <div class="col-md-10 container form-wraper">
+    <div class="col-md-12 container form-wraper">
 
         <!-- <form method="POST" action="<?php echo site_url("transaction/jurnal_save") ?>" onsubmit="return valid_data()"> -->
         <form method="POST" action="<?php echo site_url("transaction/jurnal_update") ?>" onsubmit="return valid_data()">
@@ -270,14 +247,12 @@
             <table id="debit_vau_tab">
                 <thead>
                     <tr>
-                    <th style="width: 40%;">A/C Head</th>
-                        <!-- <th style="width: 12%;">A/C Code</th> -->
-                        <th width="12%">Group</th>
-                        <th width="12%">Subgroup</th>
-                        <th>Amount</th>
-                        <th></th>
+                    <th style="width: 35%;">A/C Head</th>
+                    <th width="10%">Type</th>
+                    <th width="30%">Group</th>
+                    <th>Amount</th>
+                    <th></th>
                         <!-- <th><button class="btn btn-success" type="button" id="debitnewrow"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button></th> -->
-                    
                     </tr>
                 </thead>
                 <tbody id="debitadd">
@@ -297,15 +272,15 @@
                                         $selected = 'selected';
                                         
                                     }
-                                    echo "<option value=" . $value->sl_no  . " " . $selected . ">" . $value->ac_name . "-" . $value->benfed_ac_code . "</option>";
+                                    echo "<option value=" . $value->sl_no  . " " . $selected . ">" . $value->ac_name . "</option>";
                                 }
                                 ?>
                             </select>
                             <input type="hidden" name="acc_code_Debit[]" value="<?=$act->acc_code ?>">
                         </td>
-                        <!-- <td><input type="text" class="transparent_tag" id="benfedcode_Debit_1" name="benfedcode_id_Debit[]" style="width: 100%;" readonly></td>   -->
+                        <td><?=$act->tname ?></td>
                         <td><input type="text" class="transparent_tag" id="gr_id_Debit_1" name="gr_id_Debit[]" style="width: 100%;" value="<?=$act->gr_name ?>" readonly></td>
-                        <td><input type="text" class="transparent_tag" id="subgr_id_Debit_1" name="subgr_id_Debit[]" style="width: 100%;" value="<?=$act->subgr_name?>" readonly></td>
+                        
                         <td><input type="text" class="form-control amount_cls_Debit" id="amt" name="amount_Debit[]" style="width: 100%; text-align: right;"  value="<?=$act->amount?>"  oninput="validate(this)"  required></td>
                         <!-- <td></td> -->
                         <td><h5>Debit</h5><input type="hidden" class="transparent_tag" id="" name="dc_flg_Debit[]" value="Debit" style="width: 100%; text-align: center;" readonly></td>
@@ -318,59 +293,14 @@
                     </td>
                     <td><h4>Credit</h4></td>
                 </tr>
-                
-
             </table>
-
-            <!-- <div class="form-group row">
-                <label for="voucher_type" class="col-sm-2 col-form-label">Voucher Type:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" name="voucher_type" id="v_type" onchange="set_dr_cr()" class="input_text" required>
-                        <option value="">Select</option>
-                        <option value="R">Received</option>
-                        <option value="P">Payment</option>
-                    </select>
-                </div>
-            </div> -->
-
-            <!-- <div class="form-group row">
-
-                <label for="acc_cd" class="col-sm-2 col-form-label">A/C Head:</label>
-
-                <div class="col-sm-4">
-
-                    <select name="acc_cd" class="form-control select2" required>
-                        <option value="0">Select</option>
-                        <?php
-                        //foreach ($row as $value) {
-                           // echo "<option value='" . $value->sl_no . "'>" . $value->ac_name . "</option>";
-                       // }
-                        ?>
-                    </select>
-
-                    
-
-                </div>
-				<div class="col-sm-1">
-				    <span style="display: inline;">
-                        <input type="text" id="dc" class="transparent_tag" name="dr_cr_flag" value="" readonly>
-                    </span>
-				</div>
-
-            </div> -->
-
             <hr class="hr_divide">
-
-            
-
             <table id="vau_tab">
                 <thead>
-
                     <tr>
-                        <th style="width: 40%;">A/C Head</th>
-                        <!-- <th style="width: 12%;">A/C Code</th> -->
-                        <th width="12%">Group</th>
-                        <th width="12%">Subgroup</th>
+                        <th style="width: 35%;">A/C Head</th>
+                        <th width="10%">Type</th>
+                        <th width="30%">Group</th>
                         <th>Amount</th>
                         <th></th>
                         <!-- <th><button class="btn btn-success" type="button" id="newrow"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button></th> -->
@@ -393,18 +323,15 @@
                                         $selected = 'selected';
                                         
                                     }
-                                    echo "<option value=" . $value->sl_no . " " . $selected . ">" . $value->ac_name . "-" . $value->benfed_ac_code . "</option>";
+                                    echo "<option value=" . $value->sl_no . " " . $selected . ">" . $value->ac_name . "</option>";
                                 }
                                 ?>
                             </select>
                             <input type="hidden" name="acc_code[]" value="<?=$dt->acc_code ?>">
                         </td>
-                        <!-- <td> -->
-                            <!-- <input type="text" class="transparent_tag" id="benfedcode_1" name="benfedcode_id[]" style="width: 100%;" readonly> -->
-                        <!-- </td>   -->
-
+                       <td><?=$dt->tname ?></td>
                         <td><input type="text" class="transparent_tag" id="gr_id_1" name="gr_id[]" style="width: 100%;" value="<?=$dt->gr_name ?>" readonly></td>
-                        <td><input type="text" class="transparent_tag" id="subgr_id_1" name="subgr_id[]" style="width: 100%;" value="<?=$dt->subgr_name?>" readonly></td>
+                     
                         <td><input type="text" class="form-control amount_cls" id="amt" name="amount[]" style="width: 100%; text-align: right;" value="<?=$dt->amount?>"  oninput="validate(this)"  required></td>
                         <!-- <td></td> -->
                         <td><h5>Credit</h5><input type="hidden" class="transparent_tag" id="dc_flg" name="dc_flg[]" value="<?=$dt->dr_cr_flag == 'Dr' ? 'Debit' : 'Credit' ?>" style="width: 100%; text-align: center;" readonly></td>

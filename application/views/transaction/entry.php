@@ -24,11 +24,10 @@
                     dataType: 'html',
                     success: function(result) {
                         var result = $.parseJSON(result);
-                        $('#benfedcode_' + id).val(result.benfed_ac_code);
-                        $('#benfedcode_' + id).attr("title",result.benfed_ac_code);
+                        $('#type_' + id).val(result.tname);
+                        $('#type_' + id).attr("title",result.tname);
                         $('#gr_id_' + id).val(result.gr_name);
                         $('#gr_id_' + id).attr("title",result.gr_name);
-                        $('#subgr_id_' + id).val(result.subgr_name);
                         $('#subgr_id_' + id).attr("title",result.subgr_name);
                     }
                 });
@@ -43,14 +42,12 @@
                 dataType: 'html',
                 success: function(result) {
                     var result = $.parseJSON(result);
-                    $('#benfedcode_' + id).val(result.benfed_ac_code);
-                    $('#benfedcode_' + id).attr("title",result.benfed_ac_code);
+                    $('#type_' + id).val(result.tname);
+                    $('#type_' + id).attr("title",result.tname);
                     $('#gr_id_' + id).val(result.gr_name);
                     $('#gr_id_' + id).attr("title",result.gr_name);
-                    $('#subgr_id_' + id).val(result.subgr_name);
+               //     $('#subgr_id_' + id).val(result.subgr_name);
                     $('#subgr_id_' + id).attr("title",result.subgr_name);
-                    // console.log(result.gr_name);
-
                 }
             });
         }
@@ -63,20 +60,14 @@
                 var tr_len = $('#vau_tab #add>tr').length;
                 var x = tr_len + 1;
 
-                $("#add").append('<tr class="mb-2"><td><select id="acc_code_' + x + '" name="acc_code[]" class="form-control acc_code select2" style="width: 80%;" onchange="set_gr(' + x + ')" required><option value="">Select</option>' +
+                $("#add").append('<tr class="mb-2"><td><select id="acc_code_' + x + '" name="acc_code[]" class="form-control acc_code select2" onchange="set_gr(' + x + ')" required><option value="">Select</option>' +
                     "<?php
                         foreach ($row as $value) {
 							   
-                            echo "<option value='" . $value->sl_no . "'>" . $value->ac_name . "-". $value->benfed_ac_code ."</option>";
+                            echo "<option value='" . $value->sl_no . "'>" .trim($value->ac_name,' '). "</option>";
 							 
                         }
-                        ?>" +'</select></td>'+
-                    '<td><input type="text" class="transparent_tag" id="benfedcode_'+ x +'" name="benfedcode_id[]" style="width: 100%;" readonly></td>'+
-                    '<td><input type="text" class="transparent_tag" id="gr_id_' + x + '" name="gr_id[]" style="width: 100%;" readonly></td>' +
-                    '<td><input type="text" class="transparent_tag" id="subgr_id_' + x + '" name="subgr_id[]" style="width: 100%;" readonly></td>' +
-                    '<td><input type="text" class="form-control amount_cls" style="width: 100%; text-align: right;" id="amt" name="amount[]" oninput="validate(this)" required ></td>' +
-                    '<td><input type = "text" id = "dc_flg" name = "dc_flg[]" class = "transparent_tag" style = "width: 100%; text-align: center;" value = "' + g_flg + '" readonly required ></td>' +
-                    '<td><button type = "button" class = "btn btn-danger" id = "removeRow"> <i class = "fa fa-undo" aria-hidden = "true" > </i></button> </td></tr> ');
+                        ?>" +'</select></td>'+'<td><input type="text" class="transparent_tag" id="type_'+ x +'" name="type_id[]" style="width: 100%;" readonly></td>'+'<td><input type="text" class="transparent_tag" id="gr_id_' + x + '" name="gr_id[]" style="width: 100%;" readonly></td>'+'<td><input type="text" class="form-control amount_cls" style="width: 100%; text-align: right;" id="amt" name="amount[]" oninput="validate(this)" required ></td>'+'<td><input type = "text" id = "dc_flg" name = "dc_flg[]" class = "transparent_tag" style = "width: 100%; text-align: center;" value = "' + g_flg + '" readonly required ></td>'+'<td><button type = "button" class = "btn btn-danger" id = "removeRow"> <i class = "fa fa-undo" aria-hidden = "true" ></i></button></td></tr>');
 			  $( ".select2" ).select2();
             		 
             } else {
@@ -113,7 +104,7 @@
             <div class="form-header">
 
                 <h4>Cash Voucher</h4>
-
+               
             </div>
 
             <div class="form-group row">
@@ -157,12 +148,6 @@
 
                 <div class="col-sm-4">
 
-                    <!-- <input type="text" name="acc_hd" class="transparent_tag" value="<?//= $cash_head ?>" style="width: 200px; display:inline;" readonly />
-
-                    <input type="text" id="dc" class="transparent_tag" name="dr_cr_flag" value="" style="display:inline;" readonly />
-                     -->
-
-
                      <select name="topacc_cd" id="" class="form-control" required>
                         <option value="">Select A/C Head</option>
                         <?php foreach ($cash_head as $keyschd) { ?>
@@ -193,12 +178,11 @@
             <table id="vau_tab">
                 <thead>
                     <tr>
-                        <th style="width: 20%;">A/C Head</th>
-                        <th style="width: 12%;">A/C Code</th>
-                        <th width="12%">Group</th>
-                        <th width="12%">Subgroup</th>
-                        <th>Amount</th>
-                        <th></th>
+                        <th style="width: 25%;">A/C Head</th>
+                        <th style="width: 10%;">Type</th>
+                        <th style="width: 25%;">Group</th>
+                        <th style="width: 25%;">Amount</th>
+                        <th style="width: 10%;"></th>
                         <th><button class="btn btn-success" type="button" id="newrow">
                                 <i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button>
                         </th>
@@ -212,25 +196,22 @@
                                 <?php
                                 foreach ($row as $value) {
 									
-                                    echo "<option value=" . $value->sl_no . ">" . $value->ac_name . "-" . $value->benfed_ac_code . "</option>";
+                                    echo "<option value=" . $value->sl_no . ">" . $value->ac_name . "</option>";
                                 }
                                 ?>
                             </select>
                         </td>
                         <td>
-                            <input type="text" class="transparent_tag" id="benfedcode_1" name="benfedcode_id[]" style="width: 100%;" readonly title="">
+                            <input type="text" class="transparent_tag" id="type_1" name="type_id[]" style="width: 100%;" readonly title="">
                         </td>
                         <td>
                             <input type="text" class="transparent_tag" id="gr_id_1" name="gr_id[]" style="width: 100%;" title="" readonly>
                         </td>
                         <td>
-                            <input type="text" class="transparent_tag" id="subgr_id_1" name="subgr_id[]" style="width: 100%;" title="" readonly>
-                        </td>
-                        <td>
                             <input type="text" class="form-control amount_cls" id="amt" name="amount[]" style="width: 100%; text-align: right;" oninput="validate(this)" title="" required>
                         </td>
                         <td>
-                            <input type="text" class="transparent_tag" id="dc_flg" name="dc_flg[]" style="width: 100%; text-align: center;" readonly required>
+                            <input type="text" class="transparent_tag" id="dc_flg" name="dc_flg[]" style="text-align: center;" readonly required>
                         </td>
                     </tr>
                 </tbody>

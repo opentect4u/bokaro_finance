@@ -108,21 +108,8 @@ function printDiv() {
 					
                         <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
                         <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4>
-                        <!-- <?php 
-						// foreach($voucher as $vou);{     ?>
-						// 	 <h4><?php
-						// 	 if($vou->voucher_type == 'PUR'){echo 'Purchase Voucher'; } 
-						// 	 elseif($vou->voucher_type == 'SL'){ echo 'Sale  Voucher'; }
-						// 	 elseif($vou->voucher_type == 'A'){ echo 'Advance  Voucher'; }
-						// 	 elseif($vou->voucher_type == 'P'){ echo 'Paywent  Voucher'; }
-						// 	 elseif($vou->voucher_type == 'R'){ echo 'Receive  Voucher'; }
-						// 	 elseif($vou->voucher_type == 'CRN'){ echo 'Credit Note  Voucher'; }
-								
-						// 		?> </h4>
-							 <?php
-							//}
-							?> -->
-                        <!-- <h5 style="text-align:left"><label>District: </label> <?php echo $branch->branch_name; ?></h5> -->
+                        
+                       
 
                     </div>
                     <br>  
@@ -141,8 +128,6 @@ function printDiv() {
 		
 		<option value="A" <?php echo ($vou->approval_status == 'A')? 'selected' : '';?>>Approved</option>
 
-		<option value="H" <?php echo ($vou->approval_status == 'H')? 'selected' : '';?>>On Hold</option>
-
         </select>
 		</span>
         </center>
@@ -150,15 +135,12 @@ function printDiv() {
 		<div class="rightDate" style="margin-top: -27px;">Created Date: <?php echo date("d/m/Y H:i:s",strtotime($vou->created_dt));?></div>
 		</div>
 		<div class="printTop023">
-		<div class="leftNo">Transaction No: <?=$vou->trans_no?>
-		<!-- <div class="leftNo">Transaction No: <a href="<?=base_url()?>index.php/report/trans_detail?trans_no=<?php echo base64_encode($vou->trans_no);?>&type=<?=base64_encode($type)?>&trans_dt=<?=$vou->trans_dt?>" target="_blank"><?=$vou->trans_no?></a></div><br> -->
+		<div class="leftNo">
 		<input type="hidden" name="trans_no" class="form-control" value = "<?php echo $vou->trans_no; ?>" />
 		<input type="hidden" name="voucher_date" class="form-control" value = "<?php echo $vou->voucher_date; ?>" />
 		<input type="hidden" name="voucher_id" class="form-control" value = "<?php echo $vou->voucher_id; ?>" />
 	   </div>
-
-		<!-- <div class="leftNo">Approval Status: <?=$vou->approval_status?></div> -->
-        <br>
+      
 		<?php if(!empty($vou->transfer_type)){ ?>
 		<div class="rightDate">Voucher type: <?php if($vou->transfer_type == 'C'){echo 'Bank'; } 
 												 elseif($vou->transfer_type == 'N'){ echo 'Bank'; }

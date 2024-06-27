@@ -108,7 +108,7 @@
 
 <div class="wraper">
 
-    <div class="col-md-9 container form-wraper">
+    <div class="col-md-12 container form-wraper">
 
         <form method="POST" action="<?php echo site_url("transaction/bank_update") ?>" onsubmit="return valid_data()">
 
@@ -231,8 +231,8 @@
                 <thead>
                     <tr>
                         <th width="25%">A/C Head</th>
+                        <th width="18%">Type</th>
                         <th width="18%">Group</th>
-                        <th width="18%">Subgroup</th>
                         <th>Amount</th>
                         <th></th>
                         <th><button class="btn btn-success" type="button" id="newrow"><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></button></th>
@@ -258,15 +258,15 @@
                                 </select>
                                 <input type="hidden" name="acc_code[]" value="<?= $dt->acc_code ?>">
                             </td>
+                            <td><?=$dt->tname?></td>
                             <td><input type="text" class="transparent_tag" id="gr_id_<?= $i ?>" name="gr_id[]" value="<?=$dt->gr_name ?>" style="width: 100%;" readonly></td>
-                            <td><input type="text" class="transparent_tag" id="subgr_id_<?= $i ?>" name="subgr_id[]" value="<?=$dt->subgr_name ?>" style="width: 100%;" readonly></td>
-
+                        
                             <td><input type="text" class="form-control amount_cls" id="amt" name="amount[]" value="<?=$dt->amount; ?>" style="width: 100%; text-align: right;" oninput="validate(this)" required></td>
                             <td><input type="text" class="transparent_tag" id="dc_flg" name="dc_flg[]" value="<?=$dt->dr_cr_flag == 'Dr' ? 'Debit' : 'Credit' ?>" style="width: 100%; text-align: center;" readonly required></td>
                             <td><?php if($dt->approval_status == 'U' ) { ?>
-                                <button type="button" class="delete" date="<?php echo $dt->acc_code; ?>" id="<?php echo $dt->acc_code; ?>?<?= $voucher_detail->voucher_id ?>" data-toggle="tooltip" data-placement="bottom" title="Delete">
+                                <!-- <button type="button" class="delete" date="<?php //echo $dt->acc_code; ?>" id="<?php //echo $dt->acc_code; ?>?<?= $voucher_detail->voucher_id ?>" data-toggle="tooltip" data-placement="bottom" title="Delete">
                                             <i class="fa fa-trash-o fa-2x" style="color: #bd2130"></i>
-                                        </button>
+                                        </button> -->
                                 <?php } ?>        
                             </td>
                         </tr>

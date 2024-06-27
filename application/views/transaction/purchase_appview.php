@@ -4,7 +4,7 @@
 
         <div class="col-lg-9 col-sm-12">
 
-            <h1><strong>Unapproved & Hold Vouchers</strong></h1>
+            <h1><strong>Unapproved Vouchers</strong></h1>
 
         </div>
 
@@ -12,28 +12,7 @@
 
     <div class="col-lg-12 container contant-wraper">
         <br>
-        <!-- <div class="row">
-            <div class="col-lg-1"></div>
-            <div class="col-lg-2">
-
-                <strong>Select Vouchers</strong>
-               
-            </div>
-			<div class="col-lg-3">
-              <select name="vtype" class="form-control" id="vtype">
-			    <option value="">Select</option>
-				<option value="P">Payment</option>
-				<option value="R">Received</option>
-				<option value="A">Advance</option>
-				<option value="CRN">Credit Note</option>
-				<option value="DRN">Debit Note</option>
-				<option value="SL">Sale</option>
-				<option value="PUR">Purchase</option>
-				<option value="RECV">Receive From Society</option>
-				</select>
-            </div>
-
-        </div> -->
+       
         <div id="v_list">
             <br>
             <table class="table table-bordered table-hover" id="example">
@@ -45,8 +24,7 @@
                         <th>Status</th>
                         <th>Amount</th>
                         <th>Edit</th>
-                        <!-- <th style="width: 6%;">Approve</th> -->
-                        <!-- <th>Delete</th> -->
+                    
                     </tr>
 
                 </thead>
@@ -57,8 +35,7 @@
                     if ($row) {
 						$i = 1;
                         foreach ($row as $value) {
-                            // $drcr_flag = $value->voucher_type == 'R' ? 'Dr' : 'Cr';
-                            //if (//$value->approval_status == 'U') {
+                          
                     ?>
 
                     <tr>
@@ -68,8 +45,8 @@
                         <th>
                             <?php if($value->approval_status=='U'){
                                              echo'Unapproved';
-                                         }else if($value->approval_status=='H'){
-                                            echo'On Hold';
+                                         }else {
+                                            echo '';
                                          }  ?>
                         </th>
                         <!-- <td><?php echo $value->trans_no; ?></td> -->
@@ -80,15 +57,7 @@
                                 <i class="fa fa-edit fa-2x" style="color: #007bff"></i>
                             </a>
                         </td>
-                        <!-- <td><a href="<?= site_url() ?>/transaction/bank_forward?id=<?php echo $value->voucher_id; ?>" data-toggle="tooltip" data-placement="bottom" title="Forward">
-                                            <i class="fa fa-forward fa-2x" style="color: #007bff"></i>
-                                        </a>
-                                    </td> -->
-                        <!-- <td>
-                                        <button type="button" class="delete" date="<?php echo $value->voucher_date; ?>" id="<?php echo $value->voucher_id; ?>" data-toggle="tooltip" data-placement="bottom" title="Delete">
-                                            <i class="fa fa-trash-o fa-2x" style="color: #bd2130"></i>
-                                        </button>
-                                    </td> -->
+                       
                     </tr>
 
                     <?php

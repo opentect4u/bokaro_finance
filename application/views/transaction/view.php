@@ -5,7 +5,17 @@
         <div class="col-lg-9 col-sm-12">
 
             <h1><strong>Unapproved Cash Vouchers</strong></h1>
-
+            <?php if ($this->session->flashdata('msg')): ?>
+                            <div class="alert alert-success">
+                                <?php echo $this->session->flashdata('msg'); ?>
+                            </div>
+                            <?php
+        if (isset($_SESSION['msg'])):
+            unset($_SESSION['msg']);
+        endif;
+     ?>
+                            ?>
+               <?php  endif;  ?>
         </div>
 
     </div>
@@ -155,11 +165,13 @@
 </script>
 
 <script>
-    $(document).ready(function() {
+  
 
-        <?php if ($this->session->flashdata('msg')) { ?>
-            window.alert("<?php echo $this->session->flashdata('msg'); ?>");
+    $(window).bind("load", function() {
+  window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove();
     });
-
-    <?php } ?>
+}, 4000);
+});
 </script>

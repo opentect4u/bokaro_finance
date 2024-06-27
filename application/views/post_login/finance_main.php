@@ -157,9 +157,6 @@
                             <a href="<?php echo site_url('group'); ?>">Group</a>
                             <a href="<?php echo site_url('subgroup'); ?>">Sub Group</a>
                             <a href="<?php echo site_url('achead'); ?>">A/C Head</a>
-
-                            <!-- <a href="<?php // echo site_url('paddys/add_new/f_district'); 
-                                            ?>">District</a> -->
                         </div>
                     </div>
                 <?php } ?>
@@ -172,11 +169,9 @@
                     <div class="dropdown-content">
                         <a href="<?php echo site_url('cashVoucher'); ?>">Cash Voucher</a>
                         <a href="<?php echo site_url('bankVoucher'); ?>">Bank Voucher</a>
-
                         <a href="<?php echo site_url('jurnalVoucher'); ?>">Journal Voucher</a>
 
-                        <a href="<?php echo site_url('cheqdtl'); ?>">Cheque Entry</a>
-                        <!-- <a href="<?php echo site_url('rent_collection'); ?>">Rent Calculation</a> -->
+                        <!-- <a href="<?php //echo site_url('cheqdtl'); ?>">Cheque Entry</a> -->
 
                         <?php if ($this->session->userdata['loggedin']['ho_flag'] == "Y" && $this->session->userdata['loggedin']['user_type'] == "A" ||  $this->session->userdata['loggedin']['user_type'] == 'M' || $this->session->userdata['loggedin']['user_type'] == 'S') { ?>
                             <div class="sub-dropdown">
@@ -216,7 +211,6 @@
                                 <a href="<?php echo site_url('mnthend'); ?>">Month End </a>
                             <?php } ?>
                             <a href="<?php echo site_url('purchasevu'); ?>">Vouchers</a>
-
                             <!--<a href="<?php echo site_url('crnvu'); ?>">Cr Note to society </a>
                         <a href="<?php echo site_url('advvu'); ?>">Advance from society </a>
                         <a href="<?php echo site_url('xyz'); ?>">Receive from society </a>
@@ -239,7 +233,6 @@
                                 <a href="<?php echo site_url("cashVoucherlst"); ?>">Cash Voucher</a>
                                 <a href="<?php echo site_url("bankVoucherlst"); ?>">Bank Voucher</a>
                                 <a href="<?php echo site_url("journallst"); ?>">Journal Voucher</a>
-
                                 <a href="<?php echo site_url('advjrnlr'); ?>">All Voucher</a>
                             </div>
                         </div>

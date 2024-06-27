@@ -8,7 +8,7 @@ class Report extends CI_Controller
         parent::__construct();
         $this->load->model('Report_Model');
 		$this->load->model('master_model');
-		$this->db2 = $this->load->database('seconddb', TRUE);
+		
 		if(!isset($this->session->userdata['loggedin']['user_id'])){
             redirect('login');
         }
