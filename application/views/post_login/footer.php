@@ -8,9 +8,9 @@
 			$('.select2').select2();
 		});
         </script>
-        <footer class="sticky-footer" style="background-color: #a0a7ac; text-align: center;">
+        <footer class="sticky-footer" style="background-color: #333; text-align: center;">
 
-           <span style="line-height: 5; font-size: 12px;"><strong>Copyright © BENFED 2020</strong></span>
+           <span style="line-height: 5; font-size: 12px; color: #fff;"><strong>Copyright © BSPWA 2024</strong></span>
 
         </footer>
 

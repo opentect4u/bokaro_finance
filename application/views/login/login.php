@@ -33,6 +33,7 @@
 </head>
 
 <body>
+<!--
 	<header class="headerTop_DashLogin">
 		<div class="wrapper_Dash">
 			<div class="col-sm-3 float-left logo_Dash" onclick="location.href = 'https://benfed.in/';"><img src="<?php echo base_url("/assets/front_page/images/logo.png"); ?>" alt="" /></div>
@@ -43,18 +44,19 @@
 			</div>
 		</div>
 	</header>
+-->
+<!--
 	<div class="navigationSecLogin">
 		<div class="wrapper_Dash">
 			<div class="col-sm-12">
 				<ul>
 					<li><a href="https://benfed.in/">Home</a></li>
-				<!--	<li><a href="#">Old KMS</a></li>
-					<li><a href="<?php //echo base_url(); ?>index.php/User_Login/notice">Notice</a></li> -->
 					<li><a href="#">Contacts</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
+-->
 
 	<div class="daseboardContentArea_DashLogin daseboardPading_DashLogin">
 		<div class="wrapper_Dash">
@@ -66,9 +68,13 @@
 					<h2><img src="https://www.benfed.in/benfed.png" alt="logo"></h2>
 					<h3>The West Bengal  State Co-Operative Marketing Federation Ltd (Benfed)</h3>	
 					</div>-->
+					<div class="logo_login"><img src="<?php echo base_url("/assets/front_page/images/log_login.png"); ?>" alt="" /></div>
+<!--
 					<div class="login100_logo">
 						<h2>Login</h2>
 					</div>
+-->
+					
 					<span class="login100-form-title p-b-10" style="color:red">
 						<?php echo $this->session->flashdata('login_error'); ?>
 					</span>
@@ -137,6 +143,7 @@
 		</div>
 	</div>
 
+<!--
 	<footer class="footerSec_Dash">
 		<div class="wrapper_Dash">
 			<div class="col-sm-6 float-left mapSec"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3685.7375062895694!2d88.39095591548983!3d22.5140296852129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02714d6e5d2557%3A0x384d7dbe8ab31a73!2s3rd%20Floor%2C%201582%2C%20Rajdanga%20Main%20Rd%2C%20Kasba%20New%20Market%2C%20Rajdanga%2C%20Kasba%2C%20Kolkata%2C%20West%20Bengal%20700107!5e0!3m2!1sen!2sin!4v1614851691132!5m2!1sen!2sin" width="100%" height="175" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
@@ -153,6 +160,7 @@
 			</div>
 		</div>
 	</footer>
+-->
 
 	<!--===============================================================================================-->
 	<script src="<?php echo base_url("/assets/login/vendor/jquery/jquery-3.2.1.min.js") ?>"></script>

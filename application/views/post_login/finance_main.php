@@ -78,7 +78,7 @@
 <body id="page-top" style="background-color: #eff3f6;">
     <header class="header_class">
         <ul class="header_top">
-            <li><strong>Branch Name: </strong><?php if (isset($this->session->userdata['loggedin']['branch_name'])) {
+            <li><strong>Organization Name: </strong><?php if (isset($this->session->userdata['loggedin']['branch_name'])) {
                                                     echo $this->session->userdata['loggedin']['branch_name'];
                                                 } ?></li>
             <li><strong>Financial Year: </strong><?php if (isset($this->session->userdata['loggedin']['fin_yr'])) {
@@ -134,14 +134,14 @@
 
         <div class="col-sm-2 logo_sec_main">
             <div class="logo_sec">
-                <img src="<?php echo base_url("assets/images/benfed.png"); ?>" />
+                <img src="<?php echo base_url("assets/images/bosec_logo.png"); ?>" />
             </div>
         </div>
         <div class="col-sm-9 navbarSectio">
             <?php if ($this->session->userdata['loggedin']['user_type'] != "O") { ?>
                 <div class="dropdown">
                     <div class="dropbtn">
-                        <a href="<?php echo site_url("dashboard"); ?>" style="color: white; text-decoration: none;"><i class="fa fa-home"></i> Home</a>
+                        <a href="<?php echo site_url("dashboard"); ?>"><i class="fa fa-home"></i> Home</a>
                     </div>
 
                 </div>
@@ -380,7 +380,7 @@
             <?php } ?>
             <div class="dropdown">
                 <div class="dropbtn">
-                    <a href="<?php echo site_url("login/logout") ?>" style="color: white; text-decoration: none;"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                    <a href="<?php echo site_url("login/logout") ?>"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                 </div>
             </div>
         </div>

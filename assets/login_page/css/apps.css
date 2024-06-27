@@ -135,7 +135,10 @@ img {
 .headerTop_DashLogin .rightTxt_Dash h2 span{font-size: 25px; color: #fff; font-weight: 700; text-shadow: 0 0 6px #144477; margin-top: 6px; display: block;}
 
 
-.daseboardContentArea_DashLogin{flex: 1 0 auto; padding: 25px 25px; background: url("../images_front/bgDashboard.jpg") no-repeat center top; background-size: cover; display: flex; align-items: center;}
+.daseboardContentArea_DashLogin{flex: 1 0 auto; padding: 25px 25px; 
+/*	background: url("../images_front/bgDashboard.jpg") no-repeat center top; background-size: cover; */
+	background: #eeeeee;
+	display: flex; align-items: center;}
 .daseboardPading_DashLogin{padding-top: 20px; padding-bottom: 20px;}
 
 .navigationSecLogin{background: #fff; padding: 10px 0;}
@@ -153,7 +156,7 @@ img {
     height: 45px !important;
     border-radius: 5px !important;
     min-width: inherit !important;
-    background: #1c5cae !important;
+    background: #228fd4 !important;
     width: 100%;
 }
 
@@ -161,9 +164,9 @@ img {
 .wrap-login100 {
   max-width: 560px;
   background: #fff;
-  border-radius: 10px;
+  border-radius: 20px;
   position: relative;
-  margin: 0 auto; box-shadow: none;
+  margin: 0 auto; box-shadow: 0 0 7px 4px #ccc;
 }
 
 .wrap-login100 .txt1{display: inline-block;}
@@ -179,6 +182,8 @@ img {
     color: #1c5cae;
 }
 
-
-
+.logo_login{width: 100%;
+  text-align: left;
+  margin-bottom: 15px;
+}
 

@@ -1,20 +1,35 @@
 body{font-family: 'Roboto', sans-serif;}
-.header_class{background-color: #0167a8; border:none; padding:5px 15px; border-radius: 0; 
-    color: #fff; width: 100%; border-bottom: #6dacca solid 1px;}
+.header_class{	
+/*	background-color: #0167a8; */
+	 background: rgb(247,99,99);
+background: linear-gradient(0deg, rgba(247,99,99,1) 0%, rgba(236,76,76,1) 100%); 
+	border:none; padding:5px 15px; border-radius: 0; 
+    color: #fff; width: 100%; border-bottom:#f03434 solid 1px;}
 ul.header_top{margin:0; padding: 0; list-style-type: none;}
 ul.header_top li{display: inline-block; font-size: 12px; margin-right: 15px; line-height:16px; color: #fff;}
 ul.header_top li.date{float: right; margin: 0;}
 
 .logo_sec_main{position: relative;}
-.logo_sec{padding:5px 6px 15px 6px; background:#fff; border-radius: 0 0 50px 50px; display: inline-block; overflow: hidden; 
-    position: absolute; box-shadow:0 5px 4px -2px #d0cece;}
-.logo_sec img{max-width: 60px; height: auto;}
-nav.navbar{background-color: #228ed3; border:none; border-radius: 0; color: #9194a0; min-height: 40px;
-    box-shadow: 4px 4px 5px -4px #769eb7; border-bottom: #fff solid 1px;}
+.logo_sec{padding: 5px 6px 6px 6px;
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 0 5px 4px -2px #d0cece;
+  z-index: 9;}
+.logo_sec img{max-width: 140px; height: auto;}
+nav.navbar{
+/*	background-color: #228ed3; */
+ background: rgb(215,214,214);
+background: linear-gradient(0deg, rgba(215,214,214,1) 0%, rgba(239,243,246,1) 100%); 
+	border:none; border-radius: 0; color: #9194a0; min-height: 40px;
+    box-shadow:4px 4px 5px -4px #aeaeae; border-bottom: #fff solid 1px;}
 nav{font-family: 'Roboto', sans-serif;}
 .navbarSectio{text-align: right; padding-top:3px;}
 .navbar-brand {padding: 7px 7px 7px 0; font-size: 13px; height: inherit;}
-.dropbtn {color:#fff; padding: 7px; font-size: 13px;}
+.dropbtn {color:#000; padding: 7px; font-size: 13px;}
+.dropbtn a{color: #000;}
 .dropdown-content{text-align:left;}
 
 .navbarSectio .dropdown:last-child .dropbtn{padding-right: 0;}
