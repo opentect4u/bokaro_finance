@@ -134,7 +134,11 @@
 
         <div class="col-sm-2 logo_sec_main">
             <div class="logo_sec">
+            <?php if ($this->session->userdata['loggedin']['branch_id'] == 1 ) { ?>
                 <img src="<?php echo base_url("assets/images/bosec_logo.png"); ?>" />
+            <?php }else{  ?>
+                <img src="<?php echo base_url("assets/images/BOSEC_logo.jpg"); ?>"  style="height:65px;width:140px"/>
+                <?php } ?>
             </div>
         </div>
         <div class="col-sm-9 navbarSectio">
