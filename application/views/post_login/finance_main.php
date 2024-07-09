@@ -234,9 +234,9 @@
                         <div class="sub-dropdown">
                             <a class="sub-dropbtn">Print Voucher<i class="fa fa-angle-right" style="float: right;"></i></a>
                             <div class="sub-dropdown-content">
-                                <a href="<?php echo site_url("cashVoucherlst"); ?>">Cash Voucher</a>
+                                <!-- <a href="<?php echo site_url("cashVoucherlst"); ?>">Cash Voucher</a>
                                 <a href="<?php echo site_url("bankVoucherlst"); ?>">Bank Voucher</a>
-                                <a href="<?php echo site_url("journallst"); ?>">Journal Voucher</a>
+                                <a href="<?php echo site_url("journallst"); ?>">Journal Voucher</a> -->
                                 <a href="<?php echo site_url('advjrnlr'); ?>">All Voucher</a>
                             </div>
                         </div>

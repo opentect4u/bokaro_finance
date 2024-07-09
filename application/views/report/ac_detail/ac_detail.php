@@ -66,8 +66,25 @@
         <div id="divToPrint">
 
             <div style="text-align:center;">
-                <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
-                <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4>
+                <!-- <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
+                <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4> -->
+
+                <?php if($dist == 1){ ?>
+                        <h2>BOSEC WELFARE TRUST</h2>
+                        <h4>(Regd No.S/IL/78070of 2010-11)<br>
+                        13,Camac Street,Kolkata-7000017
+                        </h4>
+                        <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
+                        <!-- <h5 style="text-align:left"><label>District: <?php  echo $this->session->userdata['loggedin']['branch_name']; ?></label> </h5> -->
+
+   
+                        <?php }else{ ?>
+                            <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
+                        <h4>13,Camac Street,Kolkata-7000017
+                        </h4>
+                            <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
+                       <?php } ?>
+
                 <h4>Ledger Name: <?=$accdetail->ac_name?></h4>
                 <h4>Ledger Code: <?=$accdetail->benfed_ac_code?></h4>
                 <h4>Account Detail: <?php echo $_SESSION['date']; ?></h4>
