@@ -6,37 +6,37 @@
       <div class="fullWidthBotomPading">
 
     <div class="col-sm-3 float-left">
-        <div class="left_bar">
+        <!-- <div class="left_bar">
             <h2>Quick Links <i class="fa fa-link" aria-hidden="true"></i></h2>
 
            
-               <ul>
+               <ul> -->
 
                <?php  //if($this->session->userdata['loggedin']['user_type']=="A"){ ?>
-                    <li><a href="<?php echo site_url('cashVoucher'); ?>">Cash Voucher</a></li>
+                    <!-- <li><a href="<?php echo site_url('cashVoucher'); ?>">Cash Voucher</a></li>
                     <li><a href="<?php echo site_url('bankVoucher'); ?>">Bank Voucher</a></li>
-                    <li><a href="<?php echo site_url('jurnalVoucher'); ?>">Journal Voucher </a></li>
+                    <li><a href="<?php echo site_url('jurnalVoucher'); ?>">Journal Voucher </a></li> -->
                     <!-- <li> <a href="<?php //echo site_url('cheqdtl'); ?>">Cheque Entry</a></li> -->
-                    <li> <a href="<?php echo site_url('advjrnlr'); ?>">Print Voucher</a></li>
+                    <!-- <li> <a href="<?php echo site_url('advjrnlr'); ?>">Print Voucher</a></li> -->
 
                     <?php //}
                     if($this->session->userdata['loggedin']['user_type']=="A"||$this->session->userdata['loggedin']['user_type']=="M"||$this->session->userdata['loggedin']['user_type']=="D"||$this->session->userdata['loggedin']['user_type']=="S"||$this->session->userdata['loggedin']['user_type']=="C" ){ ?>
-                        <li><a href="<?php echo site_url('mnthend'); ?>">Month End</a></li>
-                        <li><a href="<?php echo site_url('purchasevu'); ?>">Unapproved Voucher</a></li>
+                        <!-- <li><a href="<?php echo site_url('mnthend'); ?>">Month End</a></li>
+                        <li><a href="<?php echo site_url('purchasevu'); ?>">Unapproved Voucher</a></li> -->
                     <?php } ?>
 
-                    <li><a href="<?php echo site_url('cashbook'); ?>">Cash Book</a></li>
+                    <!-- <li><a href="<?php echo site_url('cashbook'); ?>">Cash Book</a></li>
                     <li><a href="<?php echo site_url('bankbook'); ?>">Bank Book</a></li>
                  
-                    <li><a href="<?php echo site_url('ac_detail'); ?>">Account Detail</a></li>
+                    <li><a href="<?php echo site_url('ac_detail'); ?>">Account Detail</a></li> -->
                     
-                </ul>
+                <!-- </ul> -->
             <?php // } else { ?>
 
                
 
             <?php // } ?>
-        </div>
+        <!-- </div> -->
     </div>
 
 
@@ -46,10 +46,10 @@
           <div class="row">
             <div class="threeBoxNewmain">
               <div class="col-sm-4 float-left">
-                <div class="threeBoxNewSmall">
+                <!-- <div class="threeBoxNewSmall"> -->
                   <!-- <div class="value"><strong>&#2352;</strong>
               </div> -->
-                  <div class="threeBoxImg darkBlue"><img src="http://localhost/benfed/benfed_fertilizer/assets/images/boxIcon_a.png" alt=""></div>
+                  <!-- <div class="threeBoxImg darkBlue"><img src="http://localhost/benfed/benfed_fertilizer/assets/images/boxIcon_a.png" alt=""></div>
                   <div class="threeBoxTxt">
                     <h2>Approved voucher of the day</h2>
                     <p class="price"><span class="mt">
@@ -59,14 +59,14 @@
                         0                        <strong>L</strong>
                       </span>
                     </p>
-                  </div>
-                </div>
+                  </div> -->
+                <!-- </div> -->
               </div>
 
 
 
               <div class="col-sm-4 float-left">
-                <div class="threeBoxNewSmall">
+                <!-- <div class="threeBoxNewSmall">
                   <div class="threeBoxImg yellowCol"><img src="http://localhost/benfed/benfed_fertilizer/assets/images/boxIcon_b.png" alt=""></div>
                   <div class="threeBoxTxt">
                     <h2>Unapproved voucher of the day</h2>
@@ -75,9 +75,9 @@
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="col-sm-4 float-left">
-                <div class="threeBoxNewSmall">
+                <!-- <div class="threeBoxNewSmall">
                   <div class="threeBoxImg yellowCol"><img src="http://localhost/benfed/benfed_fertilizer/assets/images/boxIcon_collec.png" alt="">
                   </div>
                   <div class="threeBoxTxt">
@@ -87,7 +87,7 @@
                     </p>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
             </div>
           </div>
