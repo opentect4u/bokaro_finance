@@ -80,7 +80,7 @@ public function jrnlprn()
             }else{
                 $branch_id=$this->session->userdata['loggedin']['branch_id'];
             };
-            
+            $data['dist']=$branch_id;
             $_SESSION["date"]= date('d-m-Y',strtotime($frm_date)).' - '. date('d-m-Y',strtotime($to_date));
             $fin_yr= $this->session->userdata['loggedin']['fin_id'];
 
@@ -623,7 +623,7 @@ public function voucher_dtls(){
 			$fin_year_sort_code=substr($this->session->userdata['loggedin']['fin_yr'],0,4);
 			$op_dt=$fin_year_sort_code.'-04'.'-01';
 			//echo $op_dt;
-			
+            $data['dist'] =$branch_id; 
 			// $data['opebalcal'] = $this->Report_Model->get_ope_gl($opeto_dt,$acc_head);
             if( date('d-m',strtotime($frm_date))=='01-04'){
                 $data['opebalcal'] = $this->Report_Model->get_ope_gl_re($op_dt,$acc_head);
@@ -865,7 +865,8 @@ public function voucher_dtls(){
 	public function cashbook(){
 
         if($_SERVER['REQUEST_METHOD'] == "POST") {
-
+            $branch_id  = $this->session->userdata['loggedin']['branch_id'];
+            $dist  = $this->session->userdata['loggedin']['branch_id'];
             $frm_date     =   $_POST['from_date'];
             $to_date      =   $_POST['to_date'];
             $_SESSION["date"]= date('d-m-Y',strtotime($frm_date)).' - '. date('d-m-Y',strtotime($to_date));
@@ -883,7 +884,7 @@ public function voucher_dtls(){
 
                 $year = $yr - 1;
             }
-
+            $data['dist'] = $dist;
             $opndt      =  date($year.'-04-01');
 
             $data['cashbookop']     = $this->Report_Model->f_get_cashbook_opbal($opndt,$frm_date );
@@ -915,12 +916,12 @@ public function voucher_dtls(){
 
             $branch_id  = $this->session->userdata['loggedin']['branch_id'];	
            
-			
+			$dist  = $this->session->userdata['loggedin']['branch_id'];	
             $_SESSION["date"]= date('d-m-Y',strtotime($frm_date)).' - '. date('d-m-Y',strtotime($to_date));
            
 			$fin_year_sort_code=substr($this->session->userdata['loggedin']['fin_yr'],0,4);
 			$op_dt=$fin_year_sort_code.'-04'.'-01';
-			
+			$data['dist'] =$dist;
             if( date('d-m',strtotime($frm_date))=='01-04'){
                 $data['opebalcal'] = $this->Report_Model->get_ope_gl_re($op_dt,$acc_head);
 			
