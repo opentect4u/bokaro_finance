@@ -980,10 +980,11 @@ public function voucher_dtls(){
               $district =$this->session->userdata['loggedin']['branch_id'];
             $data['district']     =  $district;      //  Represent Districtwise 
             $data['mngrl']        = $this->Report_Model->f_get_balsh_mngr_lib($frm_date,$to_date,$opndt,$brid);
-            // echo $this->db->last_query();
-            // die();
+            
             $data['mngra']        = $this->Report_Model->f_get_balsh_mngr_asst($frm_date,$to_date,$opndt,$brid);
             $data['lib_bal']      = $this->Report_Model->f_get_balsh_br_lib($frm_date,$to_date,$opndt,$brid);
+            // echo $this->db->last_query();
+            // die();
 			$data['assets_bal']   = $this->Report_Model->f_get_balsh_br_asst($frm_date,$to_date,$opndt,$brid);
 
             $this->load->view('post_login/finance_main');
