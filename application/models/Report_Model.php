@@ -1169,11 +1169,11 @@ from( SELECT if(dr_cr_flag='Dr',sum(a.amount),0)as dr_amt,b.mngr_id, if(dr_cr_fl
                 FROM td_vouchers a,md_achead b,mda_mngroup c 
                 WHERE a.acc_code=b.sl_no 
                 and b.mngr_id = c.sl_no and a.voucher_date >= '$frm_date' 
-                and a.approval_status = 'A' AND a.voucher_date <= '$to_date' AND a.branch_id =$brid group by b.ac_name,a.dr_cr_flag,b.ac_name,b.mngr_id,b.subgr_id)C ,mda_subgroub f,mda_mngroup g
+                and a.approval_status = 'A' AND a.voucher_date <= '$to_date' AND a.branch_id =$brid group by b.ac_name,a.dr_cr_flag,b.ac_name,b.mngr_id,b.subgr_id)c ,mda_subgroub f,mda_mngroup g
                 where c.subgr_id=f.sl_no
                 and c.mngr_id=g.sl_no
                 and c.type in (1)                                            
-            ORDER BY C.mngr_id ASC";
+            ORDER BY c.mngr_id ASC";
             $query  = $this->db->query($sql);
             return $query->result();
     }
@@ -1199,11 +1199,11 @@ from( SELECT if(dr_cr_flag='Dr',sum(a.amount),0)as dr_amt,b.mngr_id, if(dr_cr_fl
                 FROM td_vouchers a,md_achead b,mda_mngroup c 
                 WHERE a.acc_code=b.sl_no 
                 and b.mngr_id = c.sl_no and a.voucher_date >= '$frm_date' 
-                and a.approval_status = 'A' AND a.voucher_date <= '$to_date' AND a.branch_id =$brid group by b.ac_name,a.dr_cr_flag,b.ac_name,b.mngr_id,b.subgr_id)C ,mda_subgroub f,mda_mngroup g
+                and a.approval_status = 'A' AND a.voucher_date <= '$to_date' AND a.branch_id =$brid group by b.ac_name,a.dr_cr_flag,b.ac_name,b.mngr_id,b.subgr_id)c ,mda_subgroub f,mda_mngroup g
                 where c.subgr_id=f.sl_no
                 and c.mngr_id=g.sl_no
                 and c.type in (2)                                            
-            ORDER BY C.mngr_id ASC";
+            ORDER BY c.mngr_id ASC";
             $query  = $this->db->query($sql);
             return $query->result();
     }
