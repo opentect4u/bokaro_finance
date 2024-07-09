@@ -59,12 +59,19 @@ tr:hover {background-color: #f5f5f5;}
 
                     <div style="text-align:center;">
 
-                    <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
-                <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4>
-                        <?php if($district == 1) { ?>
+                    <!-- <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
+                <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4> -->
+                        <?php if($district == 1) {                                                  
+                            ?> <h2>BOSEC WELFARE TRUST</h2>  
+                             <h4>Regd No.S/IL/78070of 2010-11)<br>
+                            13,Camac Street,Kolkata-7000017
+                              </h4>
                         <h5 style="text-align:left"><label>District: <?php  echo $this->session->userdata['loggedin']['branch_name']; ?></label> </h5>
-                        <?php } ?>
-                            <h4><?php if($district == 0) { echo 'Consolidated'; ?>  <?php } ?>Balance Sheet as on : <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
+                        <?php } ?> 
+                            <h4><?php if($district == 2) {  ?> 
+                                <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
+                                <h4>13,Camac Street,Kolkata-7000017</h4>
+                                 <?php } ?>Balance Sheet as on : <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
                   
                     </div>
                     <div class="printTop023">

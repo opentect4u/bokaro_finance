@@ -58,16 +58,23 @@ tr:hover {background-color: #f5f5f5;}
 
                     <div style="text-align:center;">
 
-                        <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
-                        <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4>
                         
-                      <?php if($this->uri->segment(1)=="trailbal"){ ?>
+                        
+                      
+                        <?php if($dist == 1){ ?>
+                        <h2>BOSEC WELFARE TRUST</h2>
+                        <h4>(Regd No.S/IL/78070of 2010-11)<br>
+                        13,Camac Street,Kolkata-7000017
+                        </h4>
                         <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4>
                         <h5 style="text-align:left"><label>District: <?php  echo $this->session->userdata['loggedin']['branch_name']; ?></label> </h5>
 
    
                         <?php }else{ ?>
-                            <h4>Consolidated Trial Balance Between: <?php echo $_SESSION['date']; ?></h4>
+                            <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
+                        <h4>13,Camac Street,Kolkata-7000017
+                        </h4>
+                            <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4>
                        <?php } ?>
                     </div>
                     <div class="printTop023">

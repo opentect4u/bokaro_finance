@@ -157,7 +157,7 @@ public function jrnlprn()
             $data['trail_balnce']     = $this->Report_Model->f_get_trailbal_br($frm_date,$to_date,$opndt,$brid,$type);
             // echo $this->db->last_query();
             // die();
-            $data['dist']         = 0;
+            $data['dist']         = $brid;
             $this->load->view('post_login/finance_main');
             $this->load->view('report/trail_bal/trail_bal.php',$data);
             $this->load->view('post_login/footer');
@@ -976,8 +976,8 @@ public function voucher_dtls(){
             $_SESSION["date"]= date('d-m-Y',strtotime($frm_date)).' - '. date('d-m-Y',strtotime($to_date));
             $fin_yr= $this->session->userdata['loggedin']['fin_id'];
             $brid=$this->session->userdata['loggedin']['branch_id'];
-          
-            $data['district']     = 1;      //  Represent Districtwise 
+              $district =$this->session->userdata['loggedin']['branch_id'];
+            $data['district']     =  $district;      //  Represent Districtwise 
             $data['mngrl']        = $this->Report_Model->f_get_balsh_mngr_lib($frm_date,$to_date,$opndt,$brid);
             $data['mngra']        = $this->Report_Model->f_get_balsh_mngr_asst($frm_date,$to_date,$opndt,$brid);
             $data['lib_bal']      = $this->Report_Model->f_get_balsh_br_lib($frm_date,$to_date,$opndt,$brid);
