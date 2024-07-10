@@ -675,11 +675,12 @@ function crn_appview()
 	}
     /***************************************** */
     public function purchaseappv(){
+        $district =$this->session->userdata['loggedin']['branch_id'];
         
             $id = $this->input->get('id');
             // $_SESSION["date"]= date('d-m-Y',strtotime($frm_date)).' - '. date('d-m-Y',strtotime($to_date));
             $fin_yr= $this->session->userdata['loggedin']['fin_id'];
-           
+            $data['district']     =  $district;
             $data['voucher']     = $this->Report_Model->f_get_purappvoucher($id);
             
 			
