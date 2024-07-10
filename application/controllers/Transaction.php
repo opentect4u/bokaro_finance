@@ -662,6 +662,8 @@ function crn_appview()
 	function get_voucher(){
 		
 		$br_cd =$this->session->userdata['loggedin']['branch_id'];
+        $district =$this->session->userdata['loggedin']['branch_id'];
+        $data['district']     =  $district;
 		$vtype = $this->input->get('vtype');
         $select = array("voucher_date","voucher_id","trans_no","amount","approval_status");
         $where  = array(
