@@ -49,46 +49,37 @@
 			
 	
         }
-/************************Sale Cancel Voucher ************************* */
-public function cancelsale_voucher(){
+/************************Member_subscription Voucher ************************* */
+public function member_subscription(){
              
     $input = file_get_contents("php://input");
    
     $dt = json_decode($input, true);
-    $fin_yr['fin_yr']= $dt['data']['fin_yr'];
-    
-     // $select    = array("max(sl_no)+1 as sl" );
-    // $where      = $fin_yr;
+    $fin_yr['fin_yr']= $dt['data']['fin_yr'];      ///    Finance ID
 
     $sl_no    = $this->Transaction_model->f_get_voucher_id($fin_yr['fin_yr']);
     $v_srl=$sl_no->sl_no;
 
     $v_id= $dt['data']['br_nm'].'/'.$dt['data']['fin_fulyr'].'/'.$v_srl;
-        // print_r( $where);
-       // $v_id = $this->Transaction_model->f_select('td_vouchers ',$select,$where,1);
-      // echo $this->db->last_query();
-     //  print_r( $v_id);
-    //   var_dump($v_id);
-   //    exit;
 
      $input_data = array(
     'voucher_date'   => date('Y-m-d'),
     // 'sl_no'          => $v_srl,
     'voucher_id'     => $v_id,
-    'branch_id'      => $dt['data']['br_cd'],
-    'trans_no'       => $dt['data']['trans_do'],
-    'trans_dt'       => $dt['data']['do_dt'],  
+    'branch_id'      => $dt['data']['branch_id'],
+    'trans_no'       => $dt['data']['trans_no'],
+    'trans_dt'       => $dt['data']['trans_dt'],  
     'voucher_type'   => 'CSL',
-    'transfer_type'  => 'T',
-    'voucher_mode'   => 'J',
+    'transfer_type'  => $dt['data']['transfer_type'],
+    'voucher_mode'   => $dt['data']['voucher_mode'],
     'voucher_through'=> 'A',
     'acc_code'       => $dt['data']['acc_cd'],
     'dr_cr_flag'     => 'CR',
-    'amount'         => $dt['data']['tot_amt'],
-    'ins_no'         => '',
-    'ins_dt'         => '',
+    'amount'         => $dt['data']['amount'],
+    'ins_no'         => $dt['data']['ins_no'],
+    'ins_dt'         => $dt['data']['ins_no'],
     'bank_name'      => '',
-    'remarks'        => $dt['data']['rem'],
+    'remarks'        => $dt['data']['remarks'],
     'approval_status'=> 'A',
     'user_flag'      =>'',
     'created_dt'     => $dt['data']['created_dt'],
@@ -99,24 +90,23 @@ public function cancelsale_voucher(){
     'approved_dt'    => $dt['data']['created_dt'],
     'fin_yr'         => $dt['data']['fin_yr']    
 );
-$input_cgst = array(
+$input_dr = array(
     'voucher_date'   => date('Y-m-d'),
-    // 'sl_no'          => $v_srl,
     'voucher_id'     =>  $v_id,
-    'branch_id'      => $dt['data']['br_cd'],
-    'trans_no'       => $dt['data']['trans_do'],
-    'trans_dt'       => $dt['data']['do_dt'],  
+    'branch_id'      => $dt['data']['branch_id'],
+    'trans_no'       => $dt['data']['trans_no'],
+    'trans_dt'       => $dt['data']['trans_dt'],  
     'voucher_type'   => 'CSL',
-    'transfer_type'  => 'T',
-    'voucher_mode'   => 'J',
+    'transfer_type'  => $dt['data']['transfer_type'],
+    'voucher_mode'   => $dt['data']['voucher_mode'],
     'voucher_through'=> 'A',
     'acc_code'       => 2205,
     'dr_cr_flag'     => 'DR',
-    'amount'         => $dt['data']['cgst'],
-    'ins_no'         => '',
-    'ins_dt'         => '',
+    'amount'         => $dt['data']['amount'],
+    'ins_no'         => $dt['data']['ins_no'],
+    'ins_dt'         => $dt['data']['ins_dt'],
     'bank_name'      => '',
-    'remarks'        => $dt['data']['rem'],
+    'remarks'        => $dt['data']['remarks'],
     'approval_status'=> 'A',
     'user_flag'      => '',
     'created_dt'     => $dt['data']['created_dt'],
@@ -126,74 +116,10 @@ $input_cgst = array(
     'approved_by'    => 'AUTO',
     'approved_dt'    => $dt['data']['created_dt'],
     'fin_yr'         => $dt['data']['fin_yr']    
-);
+   );
 
-$input_sgst = array(
-    'voucher_date'   => date('Y-m-d'),
-    // 'sl_no'          => $v_srl,
-    'voucher_id'     =>  $v_id,
-    'branch_id'      => $dt['data']['br_cd'],
-    'trans_no'       => $dt['data']['trans_do'],
-    'trans_dt'       => $dt['data']['do_dt'],  
-    'voucher_type'   => 'CSL',
-    'transfer_type'  => 'T',
-    'voucher_mode'   => 'J',
-    'voucher_through'=> 'A',
-    'acc_code'       => 2206,
-    'dr_cr_flag'     => 'DR',
-    'amount'         => $dt['data']['sgst'],
-    'ins_no'         => '',
-    'ins_dt'         => '',
-    'bank_name'      => '',
-    'remarks'        => $dt['data']['rem'],
-    'approval_status'=> 'A',
-    'user_flag'      => '',
-    'created_dt'     => $dt['data']['created_dt'],
-    'created_by'     => $dt['data']['created_by'],
-    'modified_by'    => '',
-    'modified_dt'    => '',
-    'approved_by'    => 'AUTO',
-    'approved_dt'    => $dt['data']['created_dt'],
-    'fin_yr'         => $dt['data']['fin_yr']    
-);
- 
-    $input_sale = array(
-        'voucher_date'   => date('Y-m-d'),
-        // 'sl_no'          => $v_srl,
-        'voucher_id'     =>  $v_id,
-        'branch_id'      => $dt['data']['br_cd'],
-        'trans_no'       => $dt['data']['trans_do'],
-        'trans_dt'       => $dt['data']['do_dt'],  
-        'voucher_type'   => 'CSL',
-        'transfer_type'  => 'T',
-        'voucher_mode'   => 'J',
-        'voucher_through'=> 'A',
-        'acc_code'       => 2207,
-        'dr_cr_flag'     => 'DR',
-        'amount'         => $dt['data']['taxable_amt'],
-        'ins_no'         => '',
-        'ins_dt'         => '',
-        'bank_name'      => '',
-        'remarks'        => $dt['data']['rem'],
-        'approval_status'=> 'A',
-        'user_flag'      => '',
-        'created_dt'     => $dt['data']['created_dt'],
-        'created_by'     => $dt['data']['created_by'],
-        'modified_by'    => '',
-        'modified_dt'    => '',
-        'approved_by'    => 'AUTO',
-        'approved_dt'    => $dt['data']['created_dt'],
-        'fin_yr'         => $dt['data']['fin_yr']    
-    );
 
-    // echo '<pre>';
-    // echo 'input_data<br>'; var_dump($input_data);
-    // echo 'input_cgst<br>'; var_dump($input_cgst);
-    // echo 'input_sgst<br>'; var_dump($input_sgst);
-    // echo 'input_sale<br>'; var_dump($input_sale);
-    // exit;
-
-    if($this->db->insert('td_vouchers', $input_data) && $this->db->insert('td_vouchers', $input_cgst) && $this->db->insert('td_vouchers', $input_sgst) && $this->db->insert('td_vouchers', $input_sale) ){
+    if($this->db->insert('td_vouchers', $input_data) && $this->db->insert('td_vouchers', $input_dr)){
     return 1;
 }else{
     return 0;
