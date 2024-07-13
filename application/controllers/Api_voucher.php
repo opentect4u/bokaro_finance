@@ -118,14 +118,14 @@ $input_dr = array(
     'approved_dt'    => $dt['data']['created_dt'],
     'fin_yr'         => $dt['data']['fin_yr']    
    );
-    // print_r($input_data);
-    // print_r($input_dr);
+       $count = 0; 
 
     if($this->db->insert('td_vouchers', $input_data) && $this->db->insert('td_vouchers', $input_dr)){
-    return 1;
-    }else{
-        return 0;
-    }  
+    
+    $count++;
+    }
+    
+    return $count;
                  
     }
 
