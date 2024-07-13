@@ -56,7 +56,7 @@ public function member_subscription(){
    
     $dt = json_decode($input, true);
     $fin_yr['fin_yr']= $dt['data']['fin_yr'];      ///    Finance ID
-
+    var_dump($dt);
     $sl_no    = $this->Transaction_model->f_get_voucher_id($fin_yr['fin_yr']);
     $v_srl=$sl_no->sl_no;
 
