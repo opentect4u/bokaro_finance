@@ -125,7 +125,8 @@ $input_dr = array(
     $count++;
     }
     
-    return $count;
+    //return $count;
+    echo $count;
                  
     }
 
