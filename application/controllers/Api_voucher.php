@@ -53,7 +53,6 @@
 public function member_subscription(){
              
     $input = file_get_contents("php://input");
-   
     $dt = json_decode($input, true);
     $fin_yr['fin_yr']= $dt['data']['fin_yr'];      ///    Finance ID
    
@@ -124,11 +123,153 @@ $input_dr = array(
     
     $count++;
     }
-    
     //return $count;
     echo $count;
-                 
     }
+
+    public function member_opening(){
+             
+        $input = file_get_contents("php://input");
+        $dt = json_decode($input, true);
+        $fin_yr['fin_yr']= $dt['data']['fin_yr'];      ///    Finance ID
+       
+        $sl_no    = $this->Transaction_model->f_get_voucher_id($fin_yr['fin_yr']);
+        $v_srl=$sl_no->sl_no;
+    
+        $v_id= $dt['data']['br_nm'].'/'.$dt['data']['fin_fulyr'].'/'.$v_srl;
+
+       
+    
+         $input_data = array(
+        'voucher_date'   => date('Y-m-d'),
+        'sl_no'          => $v_srl,
+        'voucher_id'     => $v_id,
+        'branch_id'      => $dt['data']['branch_id'],
+        'trans_no'       => $dt['data']['trans_no'],
+        'trans_dt'       => $dt['data']['trans_dt'],  
+        'voucher_type'   => 'G',
+        'transfer_type'  => $dt['data']['transfer_type'],
+        'voucher_mode'   => $dt['data']['voucher_mode'],
+        'voucher_through'=> 'A',
+        'acc_code'       => $dt['data']['acc_cd_cr'],
+        'dr_cr_flag'     => 'Cr',
+        'amount'         => $dt['data']['amount_cr'],
+        'ins_no'         => $dt['data']['ins_no'],
+        'ins_dt'         => $dt['data']['ins_no'],
+        'bank_name'      => '',
+        'remarks'        => $dt['data']['remarks'],
+        'approval_status'=> 'A',
+        'user_flag'      =>'',
+        'created_dt'     => $dt['data']['created_dt'],
+        'created_by'     => $dt['data']['created_by'],
+        'modified_by'    => '',
+        'modified_dt'    => '',
+        'approved_by'    => 'AUTO',
+        'approved_dt'    => $dt['data']['created_dt'],
+        'fin_yr'         => $dt['data']['fin_yr']    
+    );
+    if($dt['data']['memb_type'] == 'G'){
+    $input_data_don = array(
+        'voucher_date'   => date('Y-m-d'),
+        'sl_no'          => $v_srl,
+        'voucher_id'     => $v_id,
+        'branch_id'      => $dt['data']['branch_id'],
+        'trans_no'       => $dt['data']['trans_no'],
+        'trans_dt'       => $dt['data']['trans_dt'],  
+        'voucher_type'   => 'G',
+        'transfer_type'  => $dt['data']['transfer_type'],
+        'voucher_mode'   => $dt['data']['voucher_mode'],
+        'voucher_through'=> 'A',
+        'acc_code'       => $dt['data']['acc_cd_don_cr'],
+        'dr_cr_flag'     => 'Cr',
+        'amount'         => $dt['data']['amount_don_cr'],
+        'ins_no'         => $dt['data']['ins_no'],
+        'ins_dt'         => $dt['data']['ins_no'],
+        'bank_name'      => '',
+        'remarks'        => $dt['data']['remarks'],
+        'approval_status'=> 'A',
+        'user_flag'      =>'',
+        'created_dt'     => $dt['data']['created_dt'],
+        'created_by'     => $dt['data']['created_by'],
+        'modified_by'    => '',
+        'modified_dt'    => '',
+        'approved_by'    => 'AUTO',
+        'approved_dt'    => $dt['data']['created_dt'],
+        'fin_yr'         => $dt['data']['fin_yr']    
+    );
+    
+    $this->db->insert('td_vouchers', $input_data_don);
+     }
+     if($dt['data']['memb_type'] == 'G' || $dt['data']['memb_type'] == 'AI'){
+    $input_data_adm = array(
+        'voucher_date'   => date('Y-m-d'),
+        'sl_no'          => $v_srl,
+        'voucher_id'     => $v_id,
+        'branch_id'      => $dt['data']['branch_id'],
+        'trans_no'       => $dt['data']['trans_no'],
+        'trans_dt'       => $dt['data']['trans_dt'],  
+        'voucher_type'   => 'G',
+        'transfer_type'  => $dt['data']['transfer_type'],
+        'voucher_mode'   => $dt['data']['voucher_mode'],
+        'voucher_through'=> 'A',
+        'acc_code'       => $dt['data']['acc_cd_adm_cr'],
+        'dr_cr_flag'     => 'Cr',
+        'amount'         => $dt['data']['amount_adm_cr'],
+        'ins_no'         => $dt['data']['ins_no'],
+        'ins_dt'         => $dt['data']['ins_no'],
+        'bank_name'      => '',
+        'remarks'        => $dt['data']['remarks'],
+        'approval_status'=> 'A',
+        'user_flag'      =>'',
+        'created_dt'     => $dt['data']['created_dt'],
+        'created_by'     => $dt['data']['created_by'],
+        'modified_by'    => '',
+        'modified_dt'    => '',
+        'approved_by'    => 'AUTO',
+        'approved_dt'    => $dt['data']['created_dt'],
+        'fin_yr'         => $dt['data']['fin_yr']    
+    );
+    
+    $this->db->insert('td_vouchers', $input_data_adm);
+    }
+    $input_dr = array(
+        'voucher_date'   => date('Y-m-d'),
+        'sl_no'          => $v_srl,
+        'voucher_id'     =>  $v_id,
+        'branch_id'      => $dt['data']['branch_id'],
+        'trans_no'       => $dt['data']['trans_no'],
+        'trans_dt'       => $dt['data']['trans_dt'],  
+        'voucher_type'   => 'G',
+        'transfer_type'  => $dt['data']['transfer_type'],
+        'voucher_mode'   => $dt['data']['voucher_mode'],
+        'voucher_through'=> 'A',
+        'acc_code'       => $dt['data']['acc_cd_dr'],
+        'dr_cr_flag'     => 'Dr',
+        'amount'         => $dt['data']['amount_dr'],
+        'ins_no'         => $dt['data']['ins_no'],
+        'ins_dt'         => $dt['data']['ins_dt'],
+        'bank_name'      => '',
+        'remarks'        => $dt['data']['remarks'],
+        'approval_status'=> 'A',
+        'user_flag'      => '',
+        'created_dt'     => $dt['data']['created_dt'],
+        'created_by'     => $dt['data']['created_by'],
+        'modified_by'    => '',
+        'modified_dt'    => '',
+        'approved_by'    => 'AUTO',
+        'approved_dt'    => $dt['data']['created_dt'],
+        'fin_yr'         => $dt['data']['fin_yr']    
+        );
+
+        $count = 0; 
+    
+        if($this->db->insert('td_vouchers', $input_data) && $this->db->insert('td_vouchers', $input_dr)){
+        
+        $count++;
+        }
+        //return $count;
+        echo $count;
+        }
 
 /************************************************* */
 
