@@ -56,7 +56,7 @@ public function member_subscription(){
    
     $dt = json_decode($input, true);
     $fin_yr['fin_yr']= $dt['data']['fin_yr'];      ///    Finance ID
-    var_dump($dt);
+   
     $sl_no    = $this->Transaction_model->f_get_voucher_id($fin_yr['fin_yr']);
     $v_srl=$sl_no->sl_no;
 
@@ -117,7 +117,8 @@ $input_dr = array(
     'approved_dt'    => $dt['data']['created_dt'],
     'fin_yr'         => $dt['data']['fin_yr']    
    );
-
+    print_r($input_data);
+    print_r($input_dr);
 
     if($this->db->insert('td_vouchers', $input_data) && $this->db->insert('td_vouchers', $input_dr)){
     return 1;
