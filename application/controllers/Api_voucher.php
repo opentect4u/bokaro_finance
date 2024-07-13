@@ -69,7 +69,7 @@ public function member_subscription(){
     'branch_id'      => $dt['data']['branch_id'],
     'trans_no'       => $dt['data']['trans_no'],
     'trans_dt'       => $dt['data']['trans_dt'],  
-    'voucher_type'   => 'J',
+    'voucher_type'   => 'G',
     'transfer_type'  => $dt['data']['transfer_type'],
     'voucher_mode'   => $dt['data']['voucher_mode'],
     'voucher_through'=> 'A',
@@ -97,7 +97,7 @@ $input_dr = array(
     'branch_id'      => $dt['data']['branch_id'],
     'trans_no'       => $dt['data']['trans_no'],
     'trans_dt'       => $dt['data']['trans_dt'],  
-    'voucher_type'   => 'J',
+    'voucher_type'   => 'G',
     'transfer_type'  => $dt['data']['transfer_type'],
     'voucher_mode'   => $dt['data']['voucher_mode'],
     'voucher_through'=> 'A',
@@ -123,9 +123,9 @@ $input_dr = array(
 
     if($this->db->insert('td_vouchers', $input_data) && $this->db->insert('td_vouchers', $input_dr)){
     return 1;
-}else{
-    return 0;
-}  
+    }else{
+        return 0;
+    }  
                  
     }
 
