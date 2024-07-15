@@ -292,10 +292,7 @@ function approvedjournal()
     function entry()
     {
 		$br_cd = $this->session->userdata['loggedin']['branch_id'];
-        $where = array(
-            'br_id IN ('.$br_cd.', 0)' => NULL,
-			'BNK_flag !=' => 'B'
-        );
+        
         $achead_where = array(
             'br_id IN ('.$br_cd.', 0)' => NULL,
             'BNK_flag' => 'C'
@@ -304,6 +301,9 @@ function approvedjournal()
         $cashcd = $this->transaction_model->f_select("md_achead", $select = null, $achead_where, 0);
         $data['cash_head'] = $cashcd;//->ac_name;
         //echo $this->db->last_query();  die();
+        $where = array(
+            'br_id IN ('.$br_cd.')' => NULL,
+        );
         $data['row']   =   $this->transaction_model->f_select("md_achead", NULL, $where, 0);
        
         $data['date']   = $this->transaction_model->get_monthendDate();
@@ -722,11 +722,12 @@ function crn_appview()
             'br_id' => $this->session->userdata['loggedin']['branch_id']
         );
 		$br_cd = $this->session->userdata['loggedin']['branch_id'];
+        
+        $data['bank']  =   $this->transaction_model->f_select("md_achead", NULL, $bnk_head_where, 0);
         $achead_where = array(
             'br_id IN ('.$br_cd.', 0)' => NULL,
         );
         $data['row']   =   $this->transaction_model->f_select("md_achead", NULL, $achead_where, 0);
-        $data['bank']  =   $this->transaction_model->f_select("md_achead", NULL, $bnk_head_where, 0);
 
         $data['date']   = $this->transaction_model->get_monthendDate();
         $this->load->view('post_login/finance_main');
