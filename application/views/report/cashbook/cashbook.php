@@ -133,9 +133,9 @@ tr:hover {background-color: #f5f5f5;}
                                 <?php  
                                                         
                                       }  ?>
-									  <tr><td colspan="3"></td><td><b><?=$dr_amt?></b></td><td><b><?=$cr_amt?></b></td>
+						<tr><td colspan="2"></td><td><b><?=$dr_amt?></b></td><td><b><?=$cr_amt?></b></td>
 							</tr>
-							<tr><td colspan="2"></td><td><b>Closing Balance</b></td>
+							<tr><td colspan="1"></td><td><b>Closing Balance</b></td>
                             
                             <td><b><?php  
                             if(  $op_bal + $dr_amt-$cr_amt>0)
@@ -152,13 +152,13 @@ tr:hover {background-color: #f5f5f5;}
    
                             ?></b></td>
 							</tr>
-							<tr><td colspan="3"></td><td><b><?=abs($dr_amt+$op_bal)?></b></td>
+							<tr><td colspan="2"></td><td><b><?=abs($dr_amt+$op_bal)?></b></td>
                             <td><b><?=abs($cr_amt+$cls_bal)?></b></td>
 							</tr>
 									  
                              <?php    }else{
 
-                                    echo "<tr><td colspan='6' style='text-align:center;'>No Data Found</td></tr>";
+                                    echo "<tr><td colspan='4' style='text-align:center;'>No Data Found</td></tr>";
                                  }   
 
                             ?>
