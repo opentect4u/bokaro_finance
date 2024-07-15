@@ -91,12 +91,10 @@ tr:hover {background-color: #f5f5f5;}
                             echo"Revenue";
                         }
                         }; ?></div>
-						
-
-
 					</div>
                     <br>  
-                    <button id="btnExport" class="btn btn-primary" onclick="exportReportToExcel(this)">EXPORT EXCEL</button><br><br>
+                    <!-- <button id="btnExport" class="btn btn-primary" onclick="exportReportToExcel(this)">EXPORT EXCEL</button><br> -->
+                    <br>
                     <table style="width: 100%;" class="table table-bordered table-hover" id="example">
 
                         <thead>

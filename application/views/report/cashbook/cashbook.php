@@ -51,27 +51,17 @@ tr:hover {background-color: #f5f5f5;}
             <div class="col-lg-12 container contant-wraper">
                 <div id="divToPrint">
                     <div style="text-align:center;">
-
-                        <!-- <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
-                        <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4> -->
                         <?php if($dist == 1){ ?>
                         <h2>BOSEC WELFARE TRUST</h2>
                         <h4>(Regd No.S/IL/78070of 2010-11)<br>
-                        13,Camac Street,Kolkata-7000017
-                        </h4>
-                        <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
-                        <!-- <h5 style="text-align:left"><label>District: <?php  echo $this->session->userdata['loggedin']['branch_name']; ?></label> </h5> -->
-
+                        13,Camac Street,Kolkata-7000017</h4>
    
                         <?php }else{ ?>
                             <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
                         <h4>13,Camac Street,Kolkata-7000017
                         </h4>
-                            <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
                        <?php } ?>
                         <h4>Cash Book Between: <?php echo $_SESSION['date']; ?></h4>
-                        <h5 style="text-align:left"><label>District: </label> <?php echo $this->session->userdata['loggedin']['branch_name']; ?></h5> 
-
                     </div>
                     <br>  
 
@@ -79,7 +69,7 @@ tr:hover {background-color: #f5f5f5;}
                         <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Benfed Ac Code</th>
+                             
                                 <th>Particulars</th>
                                 <!-- <th>Vch Type</th> -->
                                 <!-- <th>Voucher no</th> -->
@@ -91,7 +81,7 @@ tr:hover {background-color: #f5f5f5;}
                         <tbody>
                                 <tr class="rep">
                                      <td><?php echo substr($_SESSION['date'],0,10); ?></td>
-                                     <td></td>
+                                 
 									 <td><b>Opening Balance</b></td>
                                      <!-- <td></td>
 									 <td></td> -->
@@ -123,7 +113,7 @@ tr:hover {background-color: #f5f5f5;}
                             ?>
                                 <tr class="rep">
                                      <td><?php echo date('d-m-Y',strtotime($tb->voucher_date)); ?></td>
-                                     <td><?php echo $tb->benfed_ac_code; ?></td>
+                                 
                                      <td><?php echo $tb->ac_name; ?></td>
                                      <!-- <td><?php
 											 if($tb->voucher_type == 'PUR'){echo 'Purchase Voucher'; } 
@@ -135,7 +125,7 @@ tr:hover {background-color: #f5f5f5;}
 											 elseif($tb->voucher_type == 'RECV'){ echo 'Receive From Society'; }
 								          ?>
 									 </td> -->
-									 <!-- <td><?php echo $tb->voucher_id; ?></td> -->
+									
                                      <td><?php echo $tb->dr_amt; $dr_amt += $tb->dr_amt; ?></td>
                                      <td><?php echo $tb->cr_amt; $cr_amt += $tb->cr_amt; ?></td>
                                 </tr>

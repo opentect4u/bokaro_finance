@@ -231,22 +231,22 @@
                         <i class="fa fa-angle-down"></i>
                     </div>
                     <div class="dropdown-content">
-                        <div class="sub-dropdown">
+                        <!-- <div class="sub-dropdown">
                             <a class="sub-dropbtn">Print Voucher<i class="fa fa-angle-right" style="float: right;"></i></a>
                             <div class="sub-dropdown-content">
-                                <!-- <a href="<?php echo site_url("cashVoucherlst"); ?>">Cash Voucher</a>
+                                 <a href="<?php echo site_url("cashVoucherlst"); ?>">Cash Voucher</a>
                                 <a href="<?php echo site_url("bankVoucherlst"); ?>">Bank Voucher</a>
-                                <a href="<?php echo site_url("journallst"); ?>">Journal Voucher</a> -->
-                                <a href="<?php echo site_url('advjrnlr'); ?>">All Voucher</a>
+                                <a href="<?php echo site_url("journallst"); ?>">Journal Voucher</a> 
+                                <a href="">All Voucher</a>
                             </div>
-                        </div>
+                        </div> -->
+                        <a href="<?php echo site_url('advjrnlr'); ?>">Print Voucher</a>
                         <!-- <a href="<?php echo site_url('ledgcodedtl'); ?>">Account Heads Details</a> -->
                         <!-- <a href="<?php echo site_url('daybook'); ?>">Daybook</a> -->
                         <a href="<?php echo site_url('cashbook'); ?>">Cashbook</a>
                         <a href="<?php echo site_url('bankbook'); ?>">Bankbook</a>
-
-                        
-                        <div class="sub-dropdown">
+                        <a href="<?php echo site_url('trailbal'); ?>">Trial balance</a>
+                        <!-- <div class="sub-dropdown">
                                 <a class="sub-dropbtn">Trial balance <i class="fa fa-angle-right" style="float: right;"></i></a>
                                 <div class="sub-dropdown-content">
                                     <a href="<?php echo site_url('trailbal'); ?>">Trial balance</a>
@@ -254,24 +254,24 @@
                                     <a href="<?php echo site_url('consolidated-trailbal'); ?>">Consolidated Trial</a>
                                     <a href="<?php echo site_url('report/groupwise_trailbal'); ?>">Group wise Consolidated Trial</a>
                                     <?php }else{ ?>
-                                    <!-- <a href="<?php echo site_url('report/groupwise_districtwise_trailbal'); ?>">Group wise Consolidated Trial</a> -->
                                     <?php } ?>
                                 </div>
-                        </div>
-                        <div class="sub-dropdown">
+                        </div> -->
+                        <!-- <div class="sub-dropdown">
                                 <a class="sub-dropbtn">Balance Sheet<i class="fa fa-angle-right" style="float: right;"></i></a>
                                 <div class="sub-dropdown-content">
                                 <?php if ($this->session->userdata['loggedin']['branch_id'] == 342) { ?>
                                 <a href="<?php echo site_url('balsh'); ?>">Balance Sheet</a>
-                                <!-- <a href="<?php echo site_url('con_balsh'); ?>">Consolidated Balance Sheet</a>
+                               <a href="<?php echo site_url('con_balsh'); ?>">Consolidated Balance Sheet</a>
                                 <a href="<?php echo site_url('group_balsh'); ?>">Group Wise Balance Sheet</a>
-                                <a href="<?php echo site_url('report/group_balsh_old'); ?>">Group Wise Balance Sheet(Old)</a> -->
+                                <a href="<?php echo site_url('report/group_balsh_old'); ?>">Group Wise Balance Sheet(Old)</a> 
                                 <?php }else{ ?>
-                                <!-- <a href="<?php echo site_url('report/group_dist_balsh'); ?>">Group Wise Balance Sheet</a> -->
+                                 <a href="<?php echo site_url('report/group_dist_balsh'); ?>">Group Wise Balance Sheet</a>
                                 <a href="<?php echo site_url('balsh'); ?>">Balance Sheet</a>
                                 <?php } ?>
                                 </div>
-                        </div>
+                        </div> -->
+                        <a href="<?php echo site_url('balsh'); ?>">Balance Sheet</a>
                         <?php if($this->session->userdata['loggedin']['branch_id'] == 342) { ?>
                             <a href="<?php echo site_url('report/trading_account'); ?>">Trading Account</a>
                             <a href="<?php echo site_url('report/profit_loss'); ?>">Profit & Loss(pl)</a>

@@ -66,33 +66,27 @@
         <div id="divToPrint">
 
             <div style="text-align:center;">
-                <!-- <h2>THE WEST BENGAL STATE CO.OP.MARKETING FEDERATION LTD.</h2>
-                <h4>HEAD OFFICE: SOUTHEND CONCLAVE, 3RD FLOOR, 1582 RAJDANGA MAIN ROAD, KOLKATA-700107.</h4> -->
-
+               
                 <?php if($dist == 1){ ?>
                         <h2>BOSEC WELFARE TRUST</h2>
                         <h4>(Regd No.S/IL/78070of 2010-11)<br>
-                        13,Camac Street,Kolkata-7000017
-                        </h4>
-                        <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
-                        <!-- <h5 style="text-align:left"><label>District: <?php  echo $this->session->userdata['loggedin']['branch_name']; ?></label> </h5> -->
-
+                        13,Camac Street,Kolkata-7000017</h4>
    
                         <?php }else{ ?>
                             <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
                         <h4>13,Camac Street,Kolkata-7000017
                         </h4>
-                            <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
+                           
                        <?php } ?>
 
                 <h4>Ledger Name: <?=$accdetail->ac_name?></h4>
                 <h4>Ledger Code: <?=$accdetail->benfed_ac_code?></h4>
                 <h4>Account Detail: <?php echo $_SESSION['date']; ?></h4>
-                <h5 style="text-align:left"><label>District: </label>
-                    <?php echo $this->session->userdata['loggedin']['branch_name']; ?></h5>
+                <!-- <h5 style="text-align:left"><label>District: </label>
+                    <?php echo $this->session->userdata['loggedin']['branch_name']; ?></h5> -->
             </div>
             <br>
-            <table id="example" class="display"  style=" width: 100%">
+            <table id="" class="display"  style=" width: 100%">
             <thead>
                     <tr>
                         <th rowspan='2' style="width:90px !important">Date</th>
@@ -176,7 +170,7 @@
             </td>
             <td style="width:30%;word-wrap: break-word"><?php echo $tb->remarks; ?></td>
          
-  			<td><a href="javascript:void(0)" onclick="voucherdtls('<?php echo $tb->voucher_id; ?>')"><?php echo $tb->voucher_id; ?></a></td>
+  			<td><?php echo $tb->voucher_id; ?></td>
 
             <td><?php if(!empty($tb->trans_no)){echo $tb->trans_no;} ?></td>
             <td><?php foreach($inv_detail as $inv) {

@@ -92,20 +92,13 @@
                         <h4>(Regd No.S/IL/78070of 2010-11)<br>
                         13,Camac Street,Kolkata-7000017
                         </h4>
-                        <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
-                        <!-- <h5 style="text-align:left"><label>District: <?php  echo $this->session->userdata['loggedin']['branch_name']; ?></label> </h5> -->
-
    
                         <?php }else{ ?>
                             <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
-                        <h4>13,Camac Street,Kolkata-7000017
-                        </h4>
-                            <!-- <h4>Trial Balance Between: <?php echo $_SESSION['date']; ?></h4> -->
+                        <h4>13,Camac Street,Kolkata-7000017</h4>
+                          
                        <?php } ?>
 					<h4><?=$voucher_type?> vouchers Between: <?php echo $_SESSION['date']; ?></h4>
-					
-					<h5 style="text-align:left"><label>District: </label> <?php echo $branch->branch_name; ?></h5>
-
 				</div>
 				<br>
 
@@ -130,9 +123,7 @@
 				<!-- </div>
 				<div class="printTop023"> -->
 					<?php if(!empty($vou->trans_no)){ ?>
-					<div class="leftNo"><b>Transaction No: </b><a
-							href="<?=base_url()?>index.php/report/trans_detail?trans_no=<?php echo base64_encode($vou->trans_no);?>&type=<?=base64_encode($vou->voucher_type)?>&trans_dt=<?=$vou->trans_dt?>"
-							target="_blank"><?=$vou->trans_no?></a>
+					<div class="leftNo"><b>Transaction No: </b><?=$vou->trans_no?>
 					</div>
 					<?php } ?>
 					
