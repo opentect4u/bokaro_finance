@@ -294,7 +294,7 @@ function approvedjournal()
 		$br_cd = $this->session->userdata['loggedin']['branch_id'];
         $where = array(
             'br_id IN ('.$br_cd.', 0)' => NULL,
-			'BNK_flag !=' => 'C'
+			'BNK_flag !=' => 'B'
         );
         $achead_where = array(
             'br_id IN ('.$br_cd.', 0)' => NULL,

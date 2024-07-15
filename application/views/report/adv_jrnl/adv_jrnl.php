@@ -113,8 +113,8 @@
 					
 					
 					<?php if(!empty($vou->transfer_type)){ ?>
-					<div class="rightDate"><b>Transfer type: </b><?php if($vou->transfer_type == 'C'){echo 'Checque'; } 
-												 elseif($vou->transfer_type == 'N'){ echo 'NEFT'; }
+					<div class="rightDate"><b>Transfer type: </b><?php if($vou->transfer_type == 'C'){echo 'Cheque'; } 
+												 elseif($vou->transfer_type == 'N'){ echo 'UPI'; }
 												 elseif($vou->transfer_type == 'R'){ echo 'RTGS'; }
 												 elseif($vou->transfer_type == 'T'){ echo 'Transfer'; }
 												 elseif($vou->transfer_type == 'H'){ echo 'Cash'; }
