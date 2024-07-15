@@ -73,8 +73,8 @@ tr:hover {background-color: #f5f5f5;}
                                 <th>Particulars</th>
                                 <!-- <th>Vch Type</th> -->
                                 <!-- <th>Voucher no</th> -->
-								<th>Debit Amount</th>
-								<th>Credit Amount</th>
+								<th>Receipt</th>
+								<th>Payment</th>
                             </tr>
                         </thead>
 
@@ -138,19 +138,18 @@ tr:hover {background-color: #f5f5f5;}
 							<tr><td colspan="1"></td><td><b>Closing Balance</b></td>
                             
                             <td><b><?php  
-                            if(  $op_bal + $dr_amt-$cr_amt>0)
+                            if(  $op_bal + $dr_amt-$cr_amt < 0)
+                            { echo abs($cls_bal = $op_bal + $dr_amt-$cr_amt); }
+                            ?></b></td>
+                            
+                            <td><b>
+                            <?php  
+                            if(  $op_bal + $dr_amt-$cr_amt > 0)
  
                             { echo $cls_bal = $op_bal + $dr_amt-$cr_amt; }
    
-                            ?></b></td>
-                            
-                            <td><b><?php  
-                            if(  $op_bal + $dr_amt-$cr_amt<0)
-
-                            
-                            { echo abs($cls_bal = $op_bal + $dr_amt-$cr_amt); }
-   
-                            ?></b></td>
+                            ?>
+                        </b></td>
 							</tr>
 							<tr><td colspan="2"></td><td><b><?=abs($dr_amt+$op_bal)?></b></td>
                             <td><b><?=abs($cr_amt+$cls_bal)?></b></td>
