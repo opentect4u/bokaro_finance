@@ -891,6 +891,7 @@ public function voucher_dtls(){
             
             
             $data['cashbook']     = $this->Report_Model->f_get_cashbook($frm_date,$to_date);
+            echo $this->db->last_query(); die();
 
             $this->load->view('post_login/finance_main');
             $this->load->view('report/cashbook/cashbook.php',$data);

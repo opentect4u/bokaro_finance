@@ -318,11 +318,12 @@ function approvedjournal()
         $data = $this->input->post();
         $where  = array('id' => $this->session->userdata['loggedin']['branch_id']);
 		$fin_id = $this->session->userdata['loggedin']['fin_id'];
-		$fin_yr = str_replace("-","",$this->session->userdata['loggedin']['fin_yr']);
+		//$fin_yr = str_replace("-","",$this->session->userdata['loggedin']['fin_yr']);
+        $fin_yr = $this->session->userdata['loggedin']['fin_yr'];
         $dis = $this->transaction_model->f_select("md_branch", $select = null, $where, 1);
         $v_id    = $this->transaction_model->f_get_voucher_id($fin_id);  // Incremented Sl No
         $v_id    = $v_id->sl_no;
-        $voucher_id = $dis->dist_sort_code .'-'. $fin_yr .'/'. $v_id;
+        $voucher_id = $dis->dist_sort_code .'/'. $fin_yr .'/'. $v_id;
         $v_code  = $data['acc_code'];
         $v_dc    =  $data['dc_flg'];
         $v_amt   =  $data['amount'];
@@ -741,11 +742,12 @@ function crn_appview()
         $data = $this->input->post();
         $where          = array('id' => $this->session->userdata['loggedin']['branch_id']);
 		$fin_id         = $this->session->userdata['loggedin']['fin_id'];
-		$fin_yr         = str_replace("-","",$this->session->userdata['loggedin']['fin_yr']);
+		//$fin_yr         = str_replace("-","",$this->session->userdata['loggedin']['fin_yr']);
+        $fin_yr         = $this->session->userdata['loggedin']['fin_yr'];
         $dis            = $this->transaction_model->f_select("md_branch", $select = null, $where, 1);
         $v_id           =   $this->transaction_model->f_get_voucher_id($fin_id);  // Incremented Sl No
         $v_id           =   $v_id->sl_no;
-		$voucher_id     = $dis->dist_sort_code .'-'. $fin_yr .'/'. $v_id;
+		$voucher_id     = $dis->dist_sort_code .'/'. $fin_yr .'/'. $v_id;
         $v_code         =   $data['acc_code'];
         $v_dc           =   $data['dc_flg'];
         $v_amt          =   $data['amount'];
@@ -1105,11 +1107,12 @@ function crn_appview()
        
         $where          =   array('id' => $this->session->userdata['loggedin']['branch_id']);
 		$fin_id         =   $this->session->userdata['loggedin']['fin_id'];
-		$fin_yr         =   str_replace("-","",$this->session->userdata['loggedin']['fin_yr']);
+		//$fin_yr         =   str_replace("-","",$this->session->userdata['loggedin']['fin_yr']);
+        $fin_yr         =   $this->session->userdata['loggedin']['fin_yr'];
         $dis            =   $this->transaction_model->f_select("md_branch", $select = null, $where, 1);
         $v_id           =   $this->transaction_model->f_get_voucher_id($fin_id);  // Incremented Sl No
         $v_id           =   $v_id->sl_no;
-        $voucher_id     =   $dis->dist_sort_code .'-'. $fin_yr .'/'. $v_id;
+        $voucher_id     =   $dis->dist_sort_code .'/'. $fin_yr .'/'. $v_id;
 
 
         $v_code         =   $data['acc_code'];
