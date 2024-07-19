@@ -1112,8 +1112,8 @@ function crn_appview()
         $dis            =   $this->transaction_model->f_select("md_branch", $select = null, $where, 1);
         $v_id           =   $this->transaction_model->f_get_voucher_id($fin_id);  // Incremented Sl No
         $v_id           =   $v_id->sl_no;
-        $voucher_id     =   $dis->dist_sort_code .'/'. $fin_yr .'/'. $v_id;
-
+        $voucher_id     =   $dis->dist_sort_code .'/'. $fin_yr .'/'. $v_id;  
+       
 
         $v_code         =   $data['acc_code'];
         $v_dc           =   $data['dc_flg'];
@@ -1153,12 +1153,6 @@ function crn_appview()
         }
 
 
-
-//exit();
-
-        //$this->transaction_model->f_insert('td_vouchers', $row_array);
-
-
         $data = $this->input->post();
         $where          =   array('id' => $this->session->userdata['loggedin']['branch_id']);
 		$fin_id         =   $this->session->userdata['loggedin']['fin_id'];
@@ -1166,7 +1160,7 @@ function crn_appview()
         $dis            =   $this->transaction_model->f_select("md_branch", $select = null, $where, 1);
         $v_id           =   $this->transaction_model->f_get_voucher_id($fin_id);  // Incremented Sl No
         $v_id           =   $v_id->sl_no;
-        $voucher_id     =   $dis->dist_sort_code .'-'. $fin_yr .'/'. $v_id;
+        //$voucher_id     =   $dis->dist_sort_code .'-'. $fin_yr .'/'. $v_id;
 
 
         $v_code         =   $data['acc_code'];
