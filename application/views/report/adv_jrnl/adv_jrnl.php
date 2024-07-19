@@ -120,8 +120,7 @@
 												 elseif($vou->transfer_type == 'H'){ echo 'Cash'; }
 												 ?></div>
 					<?php } ?>
-				<!-- </div>
-				<div class="printTop023"> -->
+			
 					<?php if(!empty($vou->trans_no)){ ?>
 					<div class="leftNo"><b>Transaction No: </b><?=$vou->trans_no?>
 					</div>
@@ -129,7 +128,7 @@
 					
 					
 				</div>
-				<?php if($vou->transfer_type != 'T' ) { ?>
+				<?php if($vou->transfer_type != 'H' ) { ?>
 				<div class="printTop023">
 				 <?php if(!empty($vou->ins_no)){ ?>
 					<div class="leftNo">Ref No: <?=$vou->ins_no?></div>
@@ -201,9 +200,6 @@
 
 
 				<div class="printTop023">
-
-
-					
 					<div class="leftNo"><b> Created By: </b><?php echo $vou->created_by; ?></div>
 					<div class="rightDate"><b>Approved By: </b><?php echo  $vou->approved_by; ?></div><br>
 
@@ -239,18 +235,3 @@
 </div>
 
 
-<!-- <script>
-            $(document).ready(function() {
-
-$('.total').each(function() {
-  var prevClass = $(this).prev().attr('class');
-  var sum = 0;
-  $('.' + prevClass).each(function() {
-    sum += Number($(this).text());
-  })
-
-  $(this).text('Total :'+sum);
-})
-
-});
-        </script> -->
