@@ -62,7 +62,7 @@ public function member_subscription(){
     $v_id= $dt['data']['br_nm'].'/'.$dt['data']['fin_fulyr'].'/'.$v_srl;
 
      $input_data = array(
-    'voucher_date'   => date('Y-m-d'),
+    'voucher_date'   => $dt['data']['trn_dt'],
     'sl_no'          => $v_srl,
     'voucher_id'     => $v_id,
     'branch_id'      => $dt['data']['branch_id'],
@@ -90,7 +90,7 @@ public function member_subscription(){
     'fin_yr'         => $dt['data']['fin_yr']    
 );
 $input_dr = array(
-    'voucher_date'   => date('Y-m-d'),
+    'voucher_date'   => $dt['data']['trn_dt'],
     'sl_no'          => $v_srl,
     'voucher_id'     =>  $v_id,
     'branch_id'      => $dt['data']['branch_id'],
@@ -141,7 +141,7 @@ $input_dr = array(
        
     
          $input_data = array(
-        'voucher_date'   => date('Y-m-d'),
+        'voucher_date'   => $dt['data']['trn_dt'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -170,7 +170,7 @@ $input_dr = array(
     );
     if($dt['data']['memb_type'] == 'G'){
     $input_data_don = array(
-        'voucher_date'   => date('Y-m-d'),
+        'voucher_date'   => $dt['data']['trn_dt'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -202,7 +202,7 @@ $input_dr = array(
      }
      if($dt['data']['memb_type'] == 'G' || $dt['data']['memb_type'] == 'AI'){
     $input_data_adm = array(
-        'voucher_date'   => date('Y-m-d'),
+        'voucher_date'   => $dt['data']['trn_dt'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -233,7 +233,7 @@ $input_dr = array(
     $this->db->insert('td_vouchers', $input_data_adm);
     }
     $input_dr = array(
-        'voucher_date'   => date('Y-m-d'),
+        'voucher_date'   => $dt['data']['trn_dt'],
         'sl_no'          => $v_srl,
         'voucher_id'     =>  $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -285,7 +285,7 @@ $input_dr = array(
         $v_id= $dt['data']['br_nm'].'/'.$dt['data']['fin_fulyr'].'/'.$v_srl;
 
         $input_data = array(
-        'voucher_date'   => date('Y-m-d'),
+        'voucher_date'   => $dt['data']['trn_dt'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -313,7 +313,7 @@ $input_dr = array(
         'fin_yr'         => $dt['data']['fin_yr']    
         );
         $input_dr = array(
-            'voucher_date'   => date('Y-m-d'),
+            'voucher_date'   => $dt['data']['trn_dt'],
             'sl_no'          => $v_srl,
             'voucher_id'     =>  $v_id,
             'branch_id'      => $dt['data']['branch_id'],
