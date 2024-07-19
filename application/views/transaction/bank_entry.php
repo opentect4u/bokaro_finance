@@ -165,9 +165,8 @@
                 <div class="col-sm-3">
                     <select class="form-control " name="transfer_type" id="t_type" onchange="set_dr_cr()" class="input_text" required>
                         <option value="">Select</option>
-                        <option value="C">Checque</option>
-                        <option value="N" selected>NEFT</option>
-                        <option value="R">RTGS</option>
+                        <option value="C">Cheque</option>
+                        <option value="N" selected>Online</option>
                         <option value="H">CASH</option>
                     </select>
                 </div>
