@@ -9,46 +9,6 @@
         }
 
 	
-        public function f_acc_code(){
-		 
-            $select	=	array("a.*");
-            $data    = $this->Api_model->f_select("md_achead a",$select,NULL,0);
-            // $curl = curl_init();
-            echo json_encode($data);
-        }
-        public function company_payAdd(){
-            $acc = $this->Transaction_model->f_select('md_achead ',Null,NULL,0); 
-
-            $curl = curl_init();
-		
-			curl_setopt_array($curl, array(
-		
-			CURLOPT_URL => 'http://localhost/benfed/benfed_fertilizer/index.php/compay/comp_acc',
-             //CURLOPT_URL => 'http://benfed.in/benfed_fertilizer/index.php/compay/comp_acc',
-			  CURLOPT_RETURNTRANSFER => true,
-			  CURLOPT_ENCODING => '',
-			  CURLOPT_MAXREDIRS => 10,
-			  CURLOPT_TIMEOUT => 0,
-			  CURLOPT_FOLLOWLOCATION => true,
-			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-			  CURLOPT_CUSTOMREQUEST => 'POST',
-			  CURLOPT_POSTFIELDS =>'{
-				"data": '.json_encode($acc).'
-			}',
-			
-			  CURLOPT_HTTPHEADER => array(
-				'Content-Type: application/json',
-				'Cookie: ci_session=eieqmu6gupm05pkg5o78jqbq97jqb22g'
-			  ),
-			));
-			
-			$response = curl_exec($curl);
-			
-			curl_close($curl);
-			echo $response;
-			
-	
-        }
 /************************Member_subscription Voucher ************************* */
 public function member_subscription(){
              
@@ -62,7 +22,7 @@ public function member_subscription(){
     $v_id= $dt['data']['br_nm'].'/'.$dt['data']['fin_fulyr'].'/'.$v_srl;
 
      $input_data = array(
-    'voucher_date'   => $dt['data']['trn_dt'],
+    'voucher_date'   => $dt['data']['voucher_date'],
     'sl_no'          => $v_srl,
     'voucher_id'     => $v_id,
     'branch_id'      => $dt['data']['branch_id'],
@@ -90,7 +50,7 @@ public function member_subscription(){
     'fin_yr'         => $dt['data']['fin_yr']    
 );
 $input_dr = array(
-    'voucher_date'   => $dt['data']['trn_dt'],
+    'voucher_date'   => $dt['data']['voucher_date'],
     'sl_no'          => $v_srl,
     'voucher_id'     =>  $v_id,
     'branch_id'      => $dt['data']['branch_id'],
@@ -141,7 +101,7 @@ $input_dr = array(
        
     
          $input_data = array(
-        'voucher_date'   => $dt['data']['trn_dt'],
+        'voucher_date'   => $dt['data']['voucher_date'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -170,7 +130,7 @@ $input_dr = array(
     );
     if($dt['data']['memb_type'] == 'G'){
     $input_data_don = array(
-        'voucher_date'   => $dt['data']['trn_dt'],
+        'voucher_date'   => $dt['data']['voucher_date'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -202,7 +162,7 @@ $input_dr = array(
      }
      if($dt['data']['memb_type'] == 'G' || $dt['data']['memb_type'] == 'AI'){
     $input_data_adm = array(
-        'voucher_date'   => $dt['data']['trn_dt'],
+        'voucher_date'   => $dt['data']['voucher_date'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -233,7 +193,7 @@ $input_dr = array(
     $this->db->insert('td_vouchers', $input_data_adm);
     }
     $input_dr = array(
-        'voucher_date'   => $dt['data']['trn_dt'],
+        'voucher_date'   => $dt['data']['voucher_date'],
         'sl_no'          => $v_srl,
         'voucher_id'     =>  $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -285,7 +245,7 @@ $input_dr = array(
         $v_id= $dt['data']['br_nm'].'/'.$dt['data']['fin_fulyr'].'/'.$v_srl;
 
         $input_data = array(
-        'voucher_date'   => $dt['data']['trn_dt'],
+        'voucher_date'   => $dt['data']['voucher_date'],
         'sl_no'          => $v_srl,
         'voucher_id'     => $v_id,
         'branch_id'      => $dt['data']['branch_id'],
@@ -313,7 +273,7 @@ $input_dr = array(
         'fin_yr'         => $dt['data']['fin_yr']    
         );
         $input_dr = array(
-            'voucher_date'   => $dt['data']['trn_dt'],
+            'voucher_date'   => $dt['data']['voucher_date'],
             'sl_no'          => $v_srl,
             'voucher_id'     =>  $v_id,
             'branch_id'      => $dt['data']['branch_id'],
