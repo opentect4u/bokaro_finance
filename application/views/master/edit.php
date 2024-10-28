@@ -49,7 +49,7 @@
 		        </div>
                 <div class="form-group row">
 
-                    <label for="benfed_srl" class="col-sm-3 col-form-label">Benfed Serial No.:</label>
+                    <label for="benfed_srl" class="col-sm-3 col-form-label">Existing Serial No.:</label>
 
                     <div class="col-sm-9">
                         <input type="text" name="benfed_srl" class="form-control required"  

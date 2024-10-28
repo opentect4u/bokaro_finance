@@ -75,7 +75,7 @@ $subgr_dtls = json_decode($subgr_dtls);
 
             <div class="form-group row">
 
-                <label for="ac_flg" class="col-sm-2 col-form-label">A/C Head</label>
+                <label for="ac_flg" class="col-sm-2 col-form-label">A/C Head Name</label>
 
                 <div class="col-sm-10">
 
@@ -86,7 +86,7 @@ $subgr_dtls = json_decode($subgr_dtls);
             </div>
             <div class="form-group row">
 
-                <label for="benfed_ac_code" class="col-sm-2 col-form-label">Benfed Account No</label>
+                <label for="benfed_ac_code" class="col-sm-2 col-form-label">Existing Account No(If any)</label>
 
                 <div class="col-sm-10">
 
