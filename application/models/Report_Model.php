@@ -1014,6 +1014,7 @@ class Report_model extends CI_Model
                FROM td_opening a,md_achead b,mda_mngroup c
                WHERE a.acc_code=b.sl_no
 			   and   b.mngr_id   =c.sl_no
+               AND b.mngr_id=c.sl_no
 			   and   b.sl_no   ='$acc_head'
                AND a.balance_dt = '$ope_date'
                AND c.type in(1,2,3,4)
