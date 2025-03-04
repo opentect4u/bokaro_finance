@@ -56,7 +56,7 @@ tr:hover {
         wb.Sheets["Sheet1"]["!cols"] = []; // Optional: You can also define column widths if needed
         var distName = "<?php if( $dist==2){
             echo "_associ";
-             }else if( $dist==2){
+             }else if( $dist==1){
                 
                 echo "_trust";    
              }; ?>";  // Get the value of $dist from PHP
