@@ -55,10 +55,10 @@ tr:hover {
         // Make sure to include headers in the Excel export
         wb.Sheets["Sheet1"]["!cols"] = []; // Optional: You can also define column widths if needed
         var distName = "<?php if( $dist==2){
-            echo "_trust";
-             }else if( $dist==1){
+            echo "_associ";
+             }else if( $dist==2){
                 
-                echo "_associ";    
+                echo "_trust";    
              }; ?>";  // Get the value of $dist from PHP
         
         var fileName = "Recv_pay" + distName + ".xlsx";
