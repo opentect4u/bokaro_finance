@@ -243,6 +243,7 @@
                         <a href="<?php echo site_url('advjrnlr'); ?>">Print Voucher</a>
                         <!-- <a href="<?php echo site_url('ledgcodedtl'); ?>">Account Heads Details</a> -->
                         <!-- <a href="<?php echo site_url('daybook'); ?>">Daybook</a> -->
+                        <a href="<?php echo site_url('recpt_pay'); ?>">Receipt Payment</a>
                         <a href="<?php echo site_url('cashbook'); ?>">Cashbook</a>
                         <a href="<?php echo site_url('bankbook'); ?>">Bankbook</a>
                         <a href="<?php echo site_url('trailbal'); ?>">Trial balance</a>

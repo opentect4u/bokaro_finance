@@ -861,7 +861,48 @@ public function voucher_dtls(){
             $this->load->view('post_login/footer');
         }
     }*/
-	
+	//Receipt payment 
+
+    public function recpt_pay(){
+
+        if($_SERVER['REQUEST_METHOD'] == "POST") {
+            $branch_id  = $this->session->userdata['loggedin']['branch_id'];
+            $dist  = $this->session->userdata['loggedin']['branch_id'];
+            $frm_date     =   $_POST['from_date'];
+            $to_date      =   $_POST['to_date'];
+            $_SESSION["date"]= date('d-m-Y',strtotime($frm_date)).' - '. date('d-m-Y',strtotime($to_date));
+            $fin_yr= $this->session->userdata['loggedin']['fin_id'];
+            
+			$mth        =  date('n',strtotime($frm_date));
+            $yr         =  date('Y',strtotime($frm_date));
+            $this->session->userdata['loggedin']['branch_id'];
+            if($mth > 3){
+
+                $year = $yr;
+
+            }else{
+
+                $year = $yr - 1;
+            }
+            $data['dist'] = $dist;
+            $opndt      =  date($year.'-04-01');
+            $data['mngrl']        = $this->Report_Model->f_get_mngr_nm();
+            $data['cashbookop']     = $this->Report_Model->f_get_cashbook_opbal($opndt,$frm_date );
+            
+            
+            $data['cashbook']     = $this->Report_Model->f_get_recvpay($frm_date,$to_date);
+
+            $this->load->view('post_login/finance_main');
+            $this->load->view('report/recpt_pay/cashbook.php',$data);
+            $this->load->view('post_login/footer');
+
+        }else{
+			
+            $this->load->view('post_login/finance_main');
+            $this->load->view('report/recpt_pay/cashbook_ip.php');
+            $this->load->view('post_login/footer');
+        }
+    }
     //Cash Book report  
 	public function cashbook(){
 
