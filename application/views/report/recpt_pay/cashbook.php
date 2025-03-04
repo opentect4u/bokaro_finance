@@ -120,7 +120,7 @@ tr:hover {
                             // Only display manager's name if there's a non-zero receipt or payment
                             if ($totalDrAmt > 0 || $totalCrAmt > 0) {
                                 // Display manager's name
-                                echo "<tr><td colspan='3' style='text-align:left; background-color:#f0f0f0;'><b>{$mn->name}</b></td></tr>";
+                                echo "<tr><td colspan='3' style='text-align:left; background-color:#f0f0f0;'><b><u>{$mn->name}</u></b></td></tr>";
 
                                 // Loop through again to display the details for that manager
                                 foreach ($cashbook as $tb) {
