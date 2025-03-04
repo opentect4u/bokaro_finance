@@ -100,12 +100,14 @@ tr:hover {
                     if ($cashbook) {
                         $dr_amt = 0.00;
                         $cr_amt = 0.00;
-
+                        $grandTotalDrAmt =0.00;
+                        $grandTotalCrAmt =0.00;
                         // Loop through each manager
                         foreach ($mngrl as $mn) {
                             // Reset amounts for the manager
                             $totalDrAmt = 0.00;
                             $totalCrAmt = 0.00;
+                           
 
                             // Loop through the cashbook data to get details for the current manager
                             foreach ($cashbook as $tb) {
@@ -132,15 +134,21 @@ tr:hover {
                                 }
 
                                 // Show the total row for each manager group
-                                $totalDrAmt=number_format($totalDrAmt,2);
-                                $totalCrAmt=number_format($totalCrAmt,2);
-                                echo "<tr><td colspan='1'><b>Total for {$mn->name}</b></td><td><b>{$totalDrAmt}</b></td><td><b>{$totalCrAmt}</b></td></tr>";
+                                $totalDrAmt=$totalDrAmt;
+                                // $totalCrAmt=number_format($totalCrAmt,2);
+                                echo "<tr><td colspan='1'><b>Total for {$mn->name}</b></td><td><b>" . number_format($totalDrAmt, 2) . "</b></td><td><b>" . number_format($totalCrAmt, 2) . "</b></td></tr>";
+                                $grandTotalDrAmt += $totalDrAmt;
+                                $grandTotalCrAmt += $totalCrAmt;
                             }
                         }
-                    } else {
-                        echo "<tr><td colspan='3' style='text-align:center;'>No Data Found</td></tr>";
-                    }
-                    ?>
+                    // Display grand total at the bottom of the table
+                    $grandTotalDrAmt = number_format($grandTotalDrAmt, 2);
+                    $grandTotalCrAmt = number_format($grandTotalCrAmt, 2);
+                    echo "<tr><td colspan='1'><b>Grand Total</b></td><td><b>{$grandTotalDrAmt}</b></td><td><b>{$grandTotalCrAmt}</b></td></tr>";
+                } else {
+                    echo "<tr><td colspan='3' style='text-align:center;'>No Data Found</td></tr>";
+                }
+                ?>
                 </tbody>
             </table>
         </div>   
