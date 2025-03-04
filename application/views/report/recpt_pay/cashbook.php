@@ -65,7 +65,7 @@ tr:hover {
         <div id="divToPrint">
             <div style="text-align:center;">
                 <?php if($dist == 1){ ?>
-                    <h2>BOSEC WELFARE TRUST--</h2>
+                    <h2>BOSEC WELFARE TRUST</h2>
                     <h4>(Regd No.S/IL/78070of 2010-11)<br>
                     13,Camac Street,Kolkata-7000017</h4>
                 <?php } else { ?>
