@@ -81,7 +81,7 @@ tr:hover {
                     <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
                     <h4>13,Camac Street,Kolkata-7000017</h4>
                 <?php } ?>
-                <h4>RECEIPT & PAYMNET ACCOUNT FOR THE YEAR <?php echo $this->session->userdata['loggedin']['fin_yr'];?></h4>
+                <h4>RECEIPT & PAYMENT ACCOUNT FOR THE YEAR <?php echo $this->session->userdata['loggedin']['fin_yr'];?></h4>
                 <h4>AS ON  <?php echo date('d-m-Y',strtotime( $_POST['to_date'] ))?></h4>
             </div>
             <br>  
