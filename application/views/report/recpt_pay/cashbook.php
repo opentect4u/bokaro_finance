@@ -132,7 +132,7 @@ tr:hover {
                                 }
 
                                 // Show the total row for each manager group
-                                echo "<tr><td colspan='1'><b>Total for {$mn->name}</b></td><td><b>{$totalDrAmt}</b></td><td><b>{$totalCrAmt}</b></td></tr>";
+                                echo "<tr><td colspan='1'><b>Total for {$mn->name}</b></td><td><b>{number_format($totalDrAmt,2)}</b></td><td><b>{number_format($totalCrAmt,2)}</b></td></tr>";
                             }
                         }
                     } else {
