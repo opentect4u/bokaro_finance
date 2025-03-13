@@ -863,7 +863,7 @@ public function voucher_dtls(){
     }*/
 	//Receipt payment 
 
-    public function recptpay(){
+    public function recpt_pay(){
 
         if($_SERVER['REQUEST_METHOD'] == "POST") {
             $branch_id  = $this->session->userdata['loggedin']['branch_id'];
