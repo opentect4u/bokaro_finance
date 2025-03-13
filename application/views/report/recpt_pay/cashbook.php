@@ -97,7 +97,7 @@ tr:hover {
 
                 <tbody>
                     <?php
-                    if ($recpt_pay) {
+                    if ($recptpay) {
                         $dr_amt = 0.00;
                         $cr_amt = 0.00;
                         $grandTotalDrAmt =0.00;
@@ -110,7 +110,7 @@ tr:hover {
                            
 
                             // Loop through the cashbook data to get details for the current manager
-                            foreach ($recpt_pay as $tb) {
+                            foreach ($recptpay as $tb) {
                                 if ($tb->mngr_id == $mn->sl_no) {
                                     $totalDrAmt += $tb->dr_amt;
                                     $totalCrAmt += $tb->cr_amt;
@@ -123,7 +123,7 @@ tr:hover {
                                 echo "<tr><td colspan='3' style='text-align:left; background-color:#f0f0f0;'><b><u>{$mn->name}</u></b></td></tr>";
 
                                 // Loop through again to display the details for that manager
-                                foreach ($recpt_pay as $tb) {
+                                foreach ($recptpay as $tb) {
                                     if ($tb->mngr_id == $mn->sl_no) {
                                         echo "<tr>";
                                         echo "<td>{$tb->ac_name}</td>";
