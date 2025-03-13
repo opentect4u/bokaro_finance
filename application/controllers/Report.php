@@ -863,7 +863,7 @@ public function voucher_dtls(){
     }*/
 	//Receipt payment 
 
-    public function recpt_pay(){
+    public function recptpay(){
 
         if($_SERVER['REQUEST_METHOD'] == "POST") {
             $branch_id  = $this->session->userdata['loggedin']['branch_id'];
@@ -890,7 +890,7 @@ public function voucher_dtls(){
             $data['cashbookop']     = $this->Report_Model->f_get_cashbook_opbal($opndt,$frm_date );
             
             
-            $data['recpt_pay']     = $this->Report_Model->f_get_recvpay($frm_date,$to_date);
+            $data['recptpay']     = $this->Report_Model->f_get_recvpay($frm_date,$to_date);
 
             $this->load->view('post_login/finance_main');
             $this->load->view('report/recpt_pay/cashbook.php',$data);
