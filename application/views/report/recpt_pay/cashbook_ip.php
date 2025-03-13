@@ -25,7 +25,7 @@ tr:hover {background-color: #f5f5f5;}
 
         <div class="col-md-6 container form-wraper">
     
-            <form method="POST" id="form" action="<?php echo site_url("recpt_pay");?>" >
+            <form method="POST" id="form" action="<?php echo site_url("recptpay");?>" >
 
                 <div class="form-header">
                 
