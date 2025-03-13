@@ -890,7 +890,7 @@ public function voucher_dtls(){
             $data['cashbookop']     = $this->Report_Model->f_get_cashbook_opbal($opndt,$frm_date );
             
             
-            $data['cashbook']     = $this->Report_Model->f_get_recvpay($frm_date,$to_date);
+            $data['recpt_pay']     = $this->Report_Model->f_get_recvpay($frm_date,$to_date);
 
             $this->load->view('post_login/finance_main');
             $this->load->view('report/recpt_pay/cashbook.php',$data);
