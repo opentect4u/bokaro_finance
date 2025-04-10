@@ -1082,31 +1082,37 @@ ORDER BY a.voucher_date ASC";
 // Receive payment 
 
 function f_get_recvpay_op($frm_date, $to_date, $opndt){
+
     $branch_id = $this->session->userdata['loggedin']['branch_id'];
+
     $sql = "SELECT TYPE,Y.amount AS op_bal,SUM(cr_amt)cr_amt,SUM(dr_amt)dr_amt,Y.amount + (SUM(dr_amt) - SUM(cr_amt)) cl_bal, IF(Y.amount + (SUM(dr_amt) - SUM(cr_amt))>0,'Dr','Cr')dr_cr_flag,
-    mngr_id,X.benfed_ac_code,ac_name,gr_name
-     FROM( SELECT a.dr_cr_flag,c.type, IF(a.dr_cr_flag='Dr',SUM(a.amount),0)cr_amt, IF(a.dr_cr_flag='Cr',SUM(a.amount),0)dr_amt ,b.mngr_id,
-      b.benfed_ac_code,b.ac_name,c.name AS gr_name,b.sl_no 
-      FROM td_vouchers a,md_achead b ,mda_mngroup c ,td_opening d
-       WHERE a.acc_code=b.sl_no 
-       AND b.sl_no=d.acc_code 
-       AND b.mngr_id=c.sl_no 
-       AND a.approval_status='A' 
-       AND a.voucher_date >= '2024-04-01' AND a.voucher_date <= '2025-03-31' 
-       AND a.branch_id='2' 
-       AND a.voucher_id IN(SELECT a.voucher_id 
-                           FROM td_vouchers a,md_achead b 
-                   WHERE a.acc_code=b.sl_no AND a.approval_status='A' 
-                   AND a.voucher_date >= '2024-04-01' 
-                   AND a.voucher_date <= '2025-03-31' AND a.branch_id='2' 
-                   GROUP BY a.dr_cr_flag,b.mngr_id,a.voucher_date,b.benfed_ac_code,a.voucher_id) 
+            mngr_id,X.benfed_ac_code,ac_name,gr_name
+            FROM( SELECT a.dr_cr_flag,c.type, IF(a.dr_cr_flag='Dr',SUM(a.amount),0)cr_amt, IF(a.dr_cr_flag='Cr',SUM(a.amount),0)dr_amt ,b.mngr_id,
+                  b.benfed_ac_code,b.ac_name,c.name AS gr_name,b.sl_no 
+                  FROM td_vouchers a,md_achead b ,mda_mngroup c ,td_opening d
+                  WHERE a.acc_code=b.sl_no 
+                  AND b.sl_no=d.acc_code 
+                  AND b.mngr_id=c.sl_no 
+                  AND a.approval_status='A' 
+                  AND a.voucher_date >= '$frm_date' AND a.voucher_date <= '$to_date' 
+                  AND a.branch_id='$branch_id' 
+                AND a.voucher_id IN(SELECT a.voucher_id 
+                                    FROM td_vouchers a,md_achead b 
+                                   WHERE a.acc_code=b.sl_no 
+                                   AND a.approval_status='A' 
+                                   AND a.voucher_date >= '$frm_date' 
+                                   AND a.voucher_date <= '$to_date' 
+                                   AND a.branch_id='$branch_id' 
+                           GROUP BY a.dr_cr_flag,b.mngr_id,a.voucher_date,b.benfed_ac_code,a.voucher_id) 
        AND b.ac_name LIKE '%cash%' 
        GROUP BY dr_cr_flag,TYPE, mngr_id, benfed_ac_code,ac_name,NAME )X,td_opening Y
        WHERE X.sl_no=Y.acc_code 
-       AND Y.balance_dt='2024-04-01' 
-       AND Y.br_id=2
+       AND Y.balance_dt='$opndt' 
+       AND Y.br_id='$branch_id'
    GROUP BY TYPE,mngr_id,X.benfed_ac_code,ac_name,gr_name";
+
     $query  = $this->db->query($sql);
+    
     return $query->result();
 }
 function f_get_recvpay($frm_date, $to_date)
