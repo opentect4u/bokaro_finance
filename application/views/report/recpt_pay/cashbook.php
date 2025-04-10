@@ -90,8 +90,8 @@ tr:hover {
                 <thead>
                     <tr>
                         <th>Particulars</th>
-                        <th>Receipt</th>
-                        <th>Payment</th>
+                        <th>CR</th>
+                        <th>DR</th>
                     </tr>
                 </thead>
 
