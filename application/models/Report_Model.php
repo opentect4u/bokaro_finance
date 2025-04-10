@@ -1107,7 +1107,7 @@ function f_get_recvpay($frm_date, $to_date)
 // ";
 
 
-$sql = "SELECT IF(amt<0,'Cr','Dr')dr_cr_flag,TYPE,IF(amt<0,amt,0)cr_amt,IF(amt>0,amt,0)dr_amt,mngr_id,benfed_ac_code,ac_name,gr_name
+$sql = "SELECT IF(amt<0,'Cr','Dr')dr_cr_flag,TYPE,abs(IF(amt<0,amt,0)cr_amt),abs(IF(amt>0,amt,0))dr_amt,mngr_id,benfed_ac_code,ac_name,gr_name
 FROM(
 SELECT TYPE,SUM(cr_amt)-SUM(dr_amt) AS amt,mngr_id,benfed_ac_code,ac_name,gr_name
 FROM(SELECT a.dr_cr_flag,c.type, IF(a.dr_cr_flag='Dr',SUM(a.amount),0)cr_amt, IF(a.dr_cr_flag='Cr',SUM(a.amount),0)dr_amt ,b.mngr_id,
