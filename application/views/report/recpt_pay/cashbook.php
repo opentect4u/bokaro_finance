@@ -189,38 +189,19 @@ tr:hover {
                 <tr>
                     <td><?php echo $casho->ac_name; ?></td>
 
-                    <td><?php if(!empty($ptableDatasummary->fo_name)){echo $ptableDatasummary->fo_name;}else{if(!empty($ptableDatasummary->branch_name)){echo $ptableDatasummary->branch_name;}else{echo "";}} ?></td>
-                    <!-- <td><?php if(!empty($ptableDatasummary->fo_number)){echo $ptableDatasummary->fo_number;}else{ echo "";} ?></td>
-
-                    <td style="text-align: right;"><?php echo $ptableDatasummary->adv_amt; ?></td>
-                    <td style="text-align: right;"><?php  echo round((0.001 * $ptableDatasummary->adv_amt),2);
-                    // $tds = round((0.001 * $ptableDatasummary->adv_amt),2);
-                        // $totalTds = $totalTds + $tds; ?></td>
-                    <td style="text-align: right;"><?php $netamt = round(($ptableDatasummary->adv_amt - $tds),2);
-                        // echo $netamt;
-                        // $totalnetamt = $totalnetamt + $netamt;
-                       // $summary_tot =  $totalnetamt + $netamt;
-                        ?></td> -->
-                </tr>
+                                    </tr>
 
 
-            <?php    } ?> -->
-
-            <!-- <tr>
-                <td colspan="3"><b>Total</b></td>
-                <td style="text-align: right;"><b><?php echo round($total, 2); ?></b></td>
-                <td style="text-align: right;"><b><?php echo round($totalTds, 2); ?></b></td>
-                <td style="text-align: right;"><b><?php echo $totalnetamt;  ?> <?php $summary_tot=$totalnetamt?></b></td>
-            </tr>
+            <?php    } ?>
         <?php
         } else {
 
             echo "<tr><td colspan='14' style='text-align:center;'>No Data Found</td></tr>";
         }
 
-        ?> -->
+        ?>
 
-    <!-- </tbody>
+    </tbody>
 
 </table>
 
