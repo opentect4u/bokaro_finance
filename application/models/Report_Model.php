@@ -1087,7 +1087,7 @@ function f_get_recvpay_op($frm_date, $to_date, $opndt){
 
     $sql = "SELECT TYPE,Y.amount AS op_bal,SUM(cr_amt)cr_amt,SUM(dr_amt)dr_amt,Y.amount + (SUM(dr_amt) - SUM(cr_amt)) cl_bal, IF(Y.amount + (SUM(dr_amt) - SUM(cr_amt))>0,'Dr','Cr')dr_cr_flag,
             mngr_id,X.benfed_ac_code,ac_name,gr_name
-            FROM( SELECT a.dr_cr_flag,c.type, IF(a.dr_cr_flag='Dr',SUM(a.amount),0)cr_amt, IF(a.dr_cr_flag='Cr',SUM(a.amount),0)dr_amt ,b.mngr_id,
+            FROM( SELECT a.dr_cr_flag,c.type, IF(a.dr_cr_flag='Dr',SUM(a.amount),0)dr_amt, IF(a.dr_cr_flag='Cr',SUM(a.amount),0)cr_amt ,b.mngr_id,
                   b.benfed_ac_code,b.ac_name,c.name AS gr_name,b.sl_no 
                   FROM td_vouchers a,md_achead b ,mda_mngroup c ,td_opening d
                   WHERE a.acc_code=b.sl_no 
@@ -1112,7 +1112,7 @@ function f_get_recvpay_op($frm_date, $to_date, $opndt){
    GROUP BY TYPE,mngr_id,X.benfed_ac_code,ac_name,gr_name";
 
     $query  = $this->db->query($sql);
-    
+
     return $query->result();
 }
 function f_get_recvpay($frm_date, $to_date)
