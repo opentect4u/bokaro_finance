@@ -1102,14 +1102,15 @@ function f_get_recvpay_op($frm_date, $to_date, $opndt){
                         AND a.approval_status='A'
                         AND a.voucher_date >= '$frm_date' 
                         AND a.voucher_date <= '$to_date' 
+                       
                         AND a.branch_id='$branch_id'
                         GROUP BY a.dr_cr_flag,b.mngr_id,a.voucher_date,b.benfed_ac_code,a.voucher_id)
                         AND b.ac_name LIKE '%cash%'
                         GROUP BY dr_cr_flag,TYPE, mngr_id,
     benfed_ac_code,ac_name,NAME )X,td_opening Y
     WHERE x.sl_no=y.acc_code
-    and y.balance_dt='$opndt'
-    GROUP BY TYPE,mngr_id,x.benfed_ac_code,ac_name,gr_name;";
+    AND y.balance_dt='$opndt'
+    GROUP BY TYPE,mngr_id,x.benfed_ac_code,ac_name,gr_name";
     $query  = $this->db->query($sql);
     return $query->result();
 }
