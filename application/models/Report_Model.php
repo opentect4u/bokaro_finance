@@ -1081,6 +1081,38 @@ ORDER BY a.voucher_date ASC";
     }
 // Receive payment 
 
+function f_get_recvpay_op($frm_date, $to_date, $opndt){
+    $branch_id = $this->session->userdata['loggedin']['branch_id'];
+    $sql = "SELECT  TYPE,y.amount AS op_bal,SUM(cr_amt)cr_amt,SUM(dr_amt)dr_amt,y.amount + (SUM(dr_amt) - SUM(cr_amt)) cl_bal,
+    IF(y.amount + (SUM(dr_amt) - SUM(cr_amt))>0,'Dr','Cr')dr_cr_flag,
+    mngr_id,x.benfed_ac_code,ac_name,gr_name
+    FROM(
+    SELECT a.dr_cr_flag,c.type, IF(a.dr_cr_flag='Dr',SUM(a.amount),0)cr_amt, IF(a.dr_cr_flag='Cr',SUM(a.amount),0)dr_amt ,b.mngr_id,
+    b.benfed_ac_code,b.ac_name,c.name AS gr_name,b.sl_no
+    FROM td_vouchers a,md_achead b ,mda_mngroup c ,td_opening d
+    WHERE a.acc_code=b.sl_no 
+    AND b.sl_no=d.acc_code
+    AND b.mngr_id=c.sl_no
+    AND a.approval_status='A'
+    AND a.voucher_date >= '$frm_date' 
+    AND a.voucher_date <= '$to_date' 
+    AND a.branch_id='$branch_id'
+    AND a.voucher_id IN(SELECT a.voucher_id
+                        FROM td_vouchers a,md_achead b WHERE a.acc_code=b.sl_no 
+                        AND a.approval_status='A'
+                        AND a.voucher_date >= '$frm_date' 
+                        AND a.voucher_date <= '$to_date' 
+                        AND a.branch_id='$branch_id'
+                        GROUP BY a.dr_cr_flag,b.mngr_id,a.voucher_date,b.benfed_ac_code,a.voucher_id)
+                        AND b.ac_name LIKE '%cash%'
+                        GROUP BY dr_cr_flag,TYPE, mngr_id,
+    benfed_ac_code,ac_name,NAME )X,td_opening Y
+    WHERE x.sl_no=y.acc_code
+    and y.balance_dt='$opndt'
+    GROUP BY TYPE,mngr_id,x.benfed_ac_code,ac_name,gr_name;";
+    $query  = $this->db->query($sql);
+    return $query->result();
+}
 function f_get_recvpay($frm_date, $to_date)
     {
         $branch_id = $this->session->userdata['loggedin']['branch_id'];

@@ -889,7 +889,7 @@ public function voucher_dtls(){
             $data['mngrl']        = $this->Report_Model->f_get_mngr_nm();
             $data['cashbookop']     = $this->Report_Model->f_get_cashbook_opbal($opndt,$frm_date );
             
-            
+            $data['recptpayop']     = $this->Report_Model->f_get_recvpay($frm_date,$to_date,$opndt);
             $data['recptpay']     = $this->Report_Model->f_get_recvpay($frm_date,$to_date);
 
             $this->load->view('post_login/finance_main');
