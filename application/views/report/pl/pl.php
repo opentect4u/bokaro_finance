@@ -64,7 +64,7 @@ tr:hover {background-color: #f5f5f5;}
                         
                         <h5 style="text-align:left"><label>District: <?php  echo $this->session->userdata['loggedin']['branch_name']; ?></label> </h5>
 
-                            <h4>PROFIT & LOSS ACCOUNT AS ON : <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
+                            <h4>Income & Expense ACCOUNT AS ON : <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
                   
                     </div>
                     <div class="printTop023">

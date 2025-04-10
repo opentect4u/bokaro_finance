@@ -278,8 +278,8 @@
                             <a href="<?php echo site_url('report/profit_loss'); ?>">Profit & Loss(pl)</a>
                         <?php } ?>
                        
-                        <!-- <a href="<?php echo site_url('pl'); ?>">Profit & Loss(old)</a>
-                        <a href="<?php echo site_url('consolidated-trailbal-group'); ?>">Group Wise Acc details</a>
+                        <a href="<?php echo site_url('pl'); ?>">Income & Expense</a>
+                        <!-- <a href="<?php echo site_url('consolidated-trailbal-group'); ?>">Group Wise Acc details</a>
                         <a href="<?php echo site_url('consolidated-trailbal-subgroup'); ?>">Sub Group Wise Acc details</a> -->
                         <?php if ($this->session->userdata['loggedin']['branch_id'] == 342) { ?>
                             
