@@ -188,8 +188,11 @@ tr:hover {
 
                 <tr>
                     <td><?php echo $cashop->ac_name; ?></td>
-
-                                    </tr>
+                    <td><?php echo $cashop->op_bal; ?></td>
+                    <td><?php echo $cashop->dr_Amt; ?></td>
+                    <td><?php echo $cashop->cr_amt; ?></td>
+                    <!-- <td><?php echo $cashop->ac_name; ?></td> -->
+                </tr>
 
 
             <?php    } ?>
