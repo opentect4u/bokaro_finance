@@ -176,7 +176,7 @@ tr:hover {
         <?php
 
              $summary_tot = 0;
-        if ($recptpay) {
+        if ($recptpayop) {
             $i = 1;
             $total = 0;
             $totalnetamt = 0;
