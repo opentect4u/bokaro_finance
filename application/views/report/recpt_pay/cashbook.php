@@ -187,7 +187,7 @@ tr:hover {
         ?>
 
                 <tr>
-                    <td><?php echo $casho->ac_name; ?></td>
+                    <td><?php echo $cashop->ac_name; ?></td>
 
                                     </tr>
 
