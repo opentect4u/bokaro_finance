@@ -152,7 +152,7 @@ tr:hover {
                 </tbody>
             </table>
         </div>   
-        <h4 style="text-align:left; margin-top: 30px;">Summary </h4>
+        <!-- <h4 style="text-align:left; margin-top: 30px;">Summary </h4> -->
 
 <table style="width: 100%; background-color: #D5D5D5;" id="example">
 
