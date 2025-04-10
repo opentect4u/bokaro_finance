@@ -152,6 +152,78 @@ tr:hover {
                 </tbody>
             </table>
         </div>   
+        <h4 style="text-align:left; margin-top: 30px;">Summary </h4>
+
+<table style="width: 100%; background-color: #D5D5D5;" id="example">
+
+    <thead>
+
+        <tr>
+
+            <th>Sl No.</th>
+            <th>Name </th>
+            <th>Opening</th>
+            <th>Receive</th>
+            <th>Payment</th>
+            <th>Closing</th>
+
+        </tr>
+
+    </thead>
+
+    <!-- <tbody>
+
+        <?php
+
+             $summary_tot = 0;
+        if ($tableData) {
+            $i = 1;
+            $total = 0;
+            $totalnetamt = 0;
+            $totalTds = 0;
+            foreach ($tableDatasummary as $ptableDatasummary) {
+                // $total=($ptableData->adv_amt+$total);
+                $total += $ptableDatasummary->adv_amt;
+        ?>
+
+                <tr>
+                    <td><?php echo $i++; ?></td>
+
+                    <td><?php if(!empty($ptableDatasummary->fo_name)){echo $ptableDatasummary->fo_name;}else{if(!empty($ptableDatasummary->branch_name)){echo $ptableDatasummary->branch_name;}else{echo "";}} ?></td>
+                    <td><?php if(!empty($ptableDatasummary->fo_number)){echo $ptableDatasummary->fo_number;}else{ echo "";} ?></td>
+
+                    <td style="text-align: right;"><?php echo $ptableDatasummary->adv_amt; ?></td>
+                    <td style="text-align: right;"><?php  echo round((0.001 * $ptableDatasummary->adv_amt),2);
+                    $tds = round((0.001 * $ptableDatasummary->adv_amt),2);
+                        $totalTds = $totalTds + $tds; ?></td>
+                    <td style="text-align: right;"><?php $netamt = round(($ptableDatasummary->adv_amt - $tds),2);
+                        echo $netamt;
+                        $totalnetamt = $totalnetamt + $netamt;
+                       // $summary_tot =  $totalnetamt + $netamt;
+                        ?></td>
+                </tr>
+
+
+            <?php    } ?> -->
+
+            <!-- <tr>
+                <td colspan="3"><b>Total</b></td>
+                <td style="text-align: right;"><b><?php echo round($total, 2); ?></b></td>
+                <td style="text-align: right;"><b><?php echo round($totalTds, 2); ?></b></td>
+                <td style="text-align: right;"><b><?php echo $totalnetamt;  ?> <?php $summary_tot=$totalnetamt?></b></td>
+            </tr>
+        <?php
+        } else {
+
+            echo "<tr><td colspan='14' style='text-align:center;'>No Data Found</td></tr>";
+        }
+
+        ?> -->
+
+    <!-- </tbody> -->
+
+</table>
+
 
         <div style="text-align: center;">
             <button class="btn btn-primary" type="button" onclick="printDiv();">Print</button>
