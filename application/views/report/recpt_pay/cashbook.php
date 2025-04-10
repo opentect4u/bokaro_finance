@@ -161,7 +161,7 @@ tr:hover {
         <tr>
 
             <!-- <th>Sl No.</th> -->
-            <th>Name </th>
+            <th>Particulars </th>
             <th>Opening</th>
             <th>Receive</th>
             <th>Payment</th>
