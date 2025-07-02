@@ -102,7 +102,10 @@ tr:hover {background-color: #f5f5f5;}
                                 if($lib_bal){
                                       foreach($mngrl as  $mn){
                                 ?>
-                                </tr><td><b><?=$mn->mng_name?></b></td><td></td></tr>
+                                </tr>
+                                <td><b><?=$mn->mng_name?></b></td>
+                                <td></td>
+                                </tr>
                                 </tr>
                                 <?php   foreach($lib_bal as $tb){
                                        if($mn->mngr_id == $tb->mngr_id) {
@@ -122,7 +125,8 @@ tr:hover {background-color: #f5f5f5;}
                                             <?php   $otot_dr +=$tb->op_dr; ?>
                                             <?php  $otot_cr +=$tb->op_cr; ?>
                            
-                                    <?php  }else{ ?>
+                                    <?php  }
+                                    else{ ?>
 									
                                      <?php if($tb->op_dr > 0 && $tb->dr_cr_flag=='DR' ){
                                                 $otot_dr +=$tb->op_dr;
