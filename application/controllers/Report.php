@@ -1221,6 +1221,7 @@ public function voucher_dtls(){
             $_SESSION["date"]= date('d-m-Y',strtotime($frm_date)).' - '. date('d-m-Y',strtotime($to_date));
             $fin_yr= $this->session->userdata['loggedin']['fin_id'];
             $brid=$this->session->userdata['loggedin']['branch_id'];
+            $data['dist']=$brid;
             $data['trail_balnce']     = $this->Report_Model->f_get_pl_br($frm_date,$to_date,$opndt,$brid);
             $this->load->view('post_login/finance_main');
             $this->load->view('report/pl/pl.php',$data);
