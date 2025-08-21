@@ -71,7 +71,7 @@ tr:hover {background-color: #f5f5f5;}
                             <h4><?php if($district == 2) {  ?> 
                                 <h2>BOKARO STEEL PEOPLE WELFARE ASSOCIATION</h2>
                                 <h4>13,Camac Street,Kolkata-7000017</h4>
-                                 <?php } ?>Balance Sheet as on : <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
+                                 <?php } ?>Balance Sheet as on :-  <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
                   
                     </div>
                     <div class="printTop023">
