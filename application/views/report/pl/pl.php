@@ -252,7 +252,7 @@ tr:hover {background-color: #f5f5f5;}
                     </tr> 
 
                     <?php 
-                            $calamt  = $ctot_cr -$ctot_dr;
+                            $calamt  =$ctot_dr -  $ctot_cr ;
                           if($calamt > 0){   ?>
                          <tr style="font-weight: bold;"> 
                         <td style="text-align: right;"> </td>
