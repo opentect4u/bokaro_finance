@@ -70,7 +70,7 @@ tr:hover {background-color: #f5f5f5;}
                         </h4>
                        <?php } ?>
 
-                            <h4>Income & Expense ACCOUNT AS ON : <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
+                            <h4>Income & Expense Account As On : <?php echo date('d-m-Y',strtotime($this->input->post('to_date'))); ?></h4>
                   
                     </div>
                     <div class="printTop023">
