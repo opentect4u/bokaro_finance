@@ -57,7 +57,7 @@ tr:hover {background-color: #f5f5f5;}
                 
                 <div id="divToPrint">
 
-                    <div style="text-align:center;">
+                    <div style="text-align:center;">  
 
                     <?php if($dist == 1){ ?>
                         <h2>BOSEC WELFARE TRUST</h2>
