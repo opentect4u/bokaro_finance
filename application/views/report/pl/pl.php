@@ -266,7 +266,7 @@ tr:hover {background-color: #f5f5f5;}
                           </tr>
                      
 
-                       <?php      }else {  ?>  
+                       <?php      }elseif($calamt < 0){  ?>  
 
                             
                           <tr style="font-weight: bold;">     
