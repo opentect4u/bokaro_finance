@@ -827,7 +827,7 @@ class Report_model extends CI_Model
         group by mngr_id, ac_name,type,benfed_ac_code )a
         group by benfed_ac_code
         union
-        SELECT 0 op_dr,0 op_cr,sum(if(dr_cr_flag='Dr',a.amount,0))as dr_amt, sum(if(dr_cr_flag='Cr',a.amount,0))as cr_amt,b.mngr_id , b.ac_name,
+        SELECT 0 op_dr,0 op_cr,sum(if(dr_cr_flag='DR',a.amount,0))as dr_amt, sum(if(dr_cr_flag='CR',a.amount,0))as cr_amt,b.mngr_id , b.ac_name,
         a.dr_cr_flag,c.type,b.benfed_ac_code
         FROM td_vouchers a,md_achead b,mda_mngroup c
         WHERE a.acc_code=b.sl_no and b.mngr_id = c.sl_no

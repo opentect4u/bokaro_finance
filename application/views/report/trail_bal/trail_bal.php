@@ -78,7 +78,8 @@ tr:hover {background-color: #f5f5f5;}
                        <?php } ?>
                     </div>
                     <div class="printTop023">
-						<div class="leftNo"><b>Type: </b> <?php foreach($type as $key => $value){ if($value==1){
+						<div class="leftNo"><b>Type: </b> <?php foreach($type as $key => $value)
+                        { if($value==1){
                             echo"Liabilites, ";
                         }
                         if($value==2){
