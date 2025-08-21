@@ -1387,7 +1387,7 @@ from( SELECT if(dr_cr_flag='Dr',sum(a.amount),0)as dr_amt,b.mngr_id, if(dr_cr_fl
     function f_get_balsh_br_asst($frm_date, $to_date, $op_dt, $brid)
     {
             $sql = "select sum(op_dr)op_dr,sum(op_cr)op_cr,sum(dr_amt)dr_amt,sum(cr_amt)cr_amt,c.mngr_id,c.subgr_id,g.name mng_name
-            ,f.name ac_name,dr_cr_flag,c.type 
+            ,c.ac_name ac_name,dr_cr_flag,c.type 
             from( SELECT sum(op_dr) op_dr,sum(op_cr)op_cr ,0 dr_amt,0 cr_amt,mngr_id, subgr_id,ac_name,dr_cr_flag,type,benfed_ac_code 
                 from( select sum(op_dr)op_dr, sum(op_cr)op_cr,sum(trans_dr)trans_dr , sum(trans_cr)trans_cr,mngr_id, ac_name,type,dr_cr_flag,benfed_ac_code ,subgr_id
             from(SELECT 0 op_dr,0 op_cr,sum(if(a.dr_cr_flag='DR',a.amount,0 ))trans_dr , sum(if(a.dr_cr_flag='CR',a.amount,0 ))trans_cr,b.mngr_id,b.subgr_id, b.ac_name,c.type, UPPER(a.dr_cr_flag)dr_cr_flag,b.benfed_ac_code 
@@ -1412,7 +1412,7 @@ from( SELECT if(dr_cr_flag='Dr',sum(a.amount),0)as dr_amt,b.mngr_id, if(dr_cr_fl
                 and c.mngr_id=g.sl_no
                 and c.type =2
 				and c.op_dr+c.op_cr+c.dr_amt+c.cr_amt>0
-                group by c.mngr_id,c.subgr_id,f.name,g.name,c.type  
+                group by c.mngr_id,c.subgr_id,c.ac_name,g.name,c.type  
             ORDER BY c.mngr_id ASC";
         $query  = $this->db->query($sql);
         return $query->result();
