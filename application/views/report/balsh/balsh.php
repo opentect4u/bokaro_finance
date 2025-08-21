@@ -19,7 +19,7 @@ tr:hover {background-color: #f5f5f5;}
 </style>
 
 <script>
-  function printDiv() {
+  function printDiv() { 
 
         var divToPrint = document.getElementById('divToPrint');
         var WindowObject = window.open('', 'Print-Window');
@@ -292,7 +292,7 @@ tr:hover {background-color: #f5f5f5;}
 
                      
 
-                       <?php      }else {  ?>
+                       <?php      }else {  ?>  
 
                         <tr style="font-weight: bold;"> 
                           <td style="text-align: right;">Income over Expenditure:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=number_format(abs($calamt),2)?></td>
