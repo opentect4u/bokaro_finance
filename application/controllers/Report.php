@@ -198,7 +198,8 @@ public function jrnlprn()
                 $data['fd_date']=$frm_date;
 
                 $data['trail_balnce']     = $this->Report_Model->f_get_trailbal($frm_date,$to_date,$opndt,$type);
-                
+                echo $this->db->last_query();
+                Die();
                 $this->load->view('post_login/finance_main');
                 $this->load->view('report/trail_bal/con_trail_bal.php',$data);
                 $this->load->view('post_login/footer');
